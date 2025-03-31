@@ -12,10 +12,10 @@
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
-	<main>
+	<main role='main'>
 		<article class="description">
 			<header>
-				<h2 id='big-less-weight'>Это твое личное пространство</h2>
+				<h2 class='big-less-weight'>Это твое личное пространство</h2>
 			</header>
 			<hr class='w-50-line'>
 			<section class='area left-section'>
@@ -38,16 +38,16 @@
 			<div class="line-break"></div>
 			<section class="card" id='top-card-1'>
 				<img src="./assets/images/#01.png" alt="Топовый товар №1">
-				<div class="left-corner-desc">
-					<h4 class='bright-text roboto-text'>товар 1</h4>
-					<span class='faded-text roboto-text'>₽ 5000 RUB</span>
+				<div class="left-corner-desc roboto-text">
+					<h4 class='bright-text'>товар 1</h4>
+					<span class='faded-text'>₽ 5000 RUB</span>
 				</div>
 			</section>
 			<section class="card" id='top-card-2'>
 				<img src="./assets/images/blumtap.png" alt="Топовый товар №2">
-				<div class="left-corner-desc">
-					<h4 class='bright-text roboto-text'>blum tap 🫵</h4>
-					<span class='faded-text roboto-text'>₽ 3200 RUB</span>
+				<div class="left-corner-desc roboto-text">
+					<h4 class='bright-text'>blum tap 🫵</h4>
+					<span class='faded-text'>₽ 3200 RUB</span>
 				</div>
 			</section>
 			<section class="card" id='top-card-3'>
