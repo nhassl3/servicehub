@@ -24,7 +24,7 @@
 		</article>
     <article class="second-about">
             <header>
-                <h2 class='h-2'>Это история нашей жизни</h2>
+                <h2 class='big-less-weight'>Это история нашей жизни</h2>
 				<hr class="w-50-line"/>
 			</header>
 			<section class="left-space-section area">

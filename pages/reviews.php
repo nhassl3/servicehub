@@ -12,7 +12,9 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/header.php" ?>
 
 	<main>
-
+		<article>
+			
+		</article>
 	</main>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.php" ?>

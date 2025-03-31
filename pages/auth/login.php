@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ServiceHub | Логин</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
-	<link rel="stylesheet" href="/assets/css/style-auth.css">
+	<link rel="stylesheet" href="/assets/css/style-form.css">
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
 </head>
 <body>
@@ -19,7 +19,7 @@
 			<form style="width: 538px;">
 					<section>
 						<label for="username" class="lbl-int">Никнейм</label>
-						<input type="text" id="username" class="ipt-data" placeholder="Введите логин" require/>
+						<input type="text" id="username" class="ipt-data" placeholder="Введите никнейм" require/>
 					</section>
 					<section>
 						<label for="password" class="lbl-int">Пароль</label>

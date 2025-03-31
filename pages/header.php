@@ -1,4 +1,4 @@
-<header id='nav'>
+<header id='nav' role='banner'>
 	<div class="logo">
 		<a href="/index.php" style="text-decoration: none; color: #000;">
 			<h1>ServiceHub</h1>

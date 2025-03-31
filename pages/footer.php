@@ -1,4 +1,4 @@
-<footer>
+<footer role='contentinfo'>
 	<header>
 		<div>
 			<a href="/index.php" style="text-decoration: none; color: #000;">
@@ -61,9 +61,6 @@
 				<header>
 					<h3>подписывайтесь</h3>
 				</header>
-				<li>
-					<a href="https://www.instagram.com/" class="footer-link" id='instagram'>Instagram</a>
-				</li>
 				<li>
 					<a href="https://github.com/nhassl3" class="footer-link" id='github'>GitHub</a>
 				</li>

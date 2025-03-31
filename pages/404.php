@@ -12,10 +12,8 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
 	<main>
-		<div>
-			<h2>404</h2>
-			<div>Страница не найдена!</div>
-		</div>
+		<h2>404</h2>
+		<div>Страница не найдена!</div>
 	</main>
 	
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
