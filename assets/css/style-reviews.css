@@ -1,4 +1,9 @@
 main {
-	height: 95%;
-	padding: 10em;
+	margin: 0;
+	padding: 0;
+	min-width: 100%;
+}
+
+main article {
+	
 }

@@ -1,17 +1,7 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
 main {
-	display: flex;
-	flex-direction: column;
-	height: 75%;
-	padding: 10em;
+	scroll-behavior: smooth;
 }
 
-.cap-small-text {
-	text-transform: uppercase;
-	font-size: 18pt;
-	font-weight: 550;
+.bright-text {
+	color: #000;
 }

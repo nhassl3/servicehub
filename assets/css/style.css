@@ -5,7 +5,14 @@
 	padding: 0;
 }
 
-body, html {
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
@@ -100,7 +107,7 @@ main {
 	margin: 10em 0 25em 10em;
 }
 
-h2#big-less-weight {
+.big-less-weight {
 	font-weight: 300;
 	font-size: 32pt;
 }
@@ -184,15 +191,26 @@ h2#big-less-weight {
 }
 
 .ipt-data {
-	border-radius: 2px;
-	text-indent: 20px;
-	font-size: 11pt;
-	font-weight: 350;
-	height: 32px;
-	border: 1px solid #ccc;
+  border-radius: 2px;
+  text-indent: 20px;
+  font-size: 11pt;
+  font-weight: 350;
+  height: 32px;
+  border: none; outline: 2px solid transparent;
+	background-image: 
+	linear-gradient(to bottom, #cacaca 1px, transparent 1px),
+	linear-gradient(to bottom, #cacaca 1px, transparent 1px),
+	linear-gradient(to right, #cacaca 1px, transparent 1px, transparent calc(100% - 1px), #cacaca calc(100% - 1px)),
+	linear-gradient(to top, #cacaca 1px, transparent 1px);
+	background-position: -100% 0%, 200% 0%, 0% 100%, 0% 100%;
+	background-size: 50% 100%, 50% 100%, 100% 1px, 100% 100%;
+	background-repeat: no-repeat;
+  transition: background-size .4s ease-out .6s, background-position .6s ease-in;
 }
-.ipt-data:active::after {
-	border: 1px solid #ccc;
+.ipt-data:focus {
+  background-position: 0% 0%, 100% 0%, 0% 100%, 0% 100%;
+  background-size: 51% 100%, 51% 100%, 100% 100%, 100% 100%;
+  transition: background-size .4s ease-in, background-position .6s ease-out .4s;
 }
 
 .lbl-int {
@@ -237,13 +255,12 @@ h2#big-less-weight {
 }
 
 .left-corner-desc {
-	width: calc(340px-);
-	display: inline-flex;
+	display: inline-block;
+	width: fit-content;
 	height: 15%;
 	flex-direction: column;
 	justify-content: flex-start;
 	text-align: left;
-	float: bottom;
 }
 
 /* Название товара */
@@ -288,6 +305,7 @@ footer header div a h2 {
 .faded-text {
 	color: #888;
 	font-size: 0.9rem;
+	width: fit-content;
 }
 
 .footer-links {
@@ -368,7 +386,7 @@ footer header div a h2 {
 		margin: 8em 0 20em 5em;
 	}
 
-	h2#big-less-weight {
+	.big-less-weight {
 			font-size: 28pt;
 	}
 
@@ -446,7 +464,7 @@ footer header div a h2 {
 		padding: 0 1em;
 	}
 
-	h2#big-less-weight {
+	.big-less-weight {
 			font-size: 24pt;
 			text-align: center;
 	}
@@ -488,7 +506,7 @@ footer header div a h2 {
 		margin: 3em auto;
 	}
 
-	h2#big-less-weight {
+	.big-less-weight {
 			font-size: 20pt;
 	}
 
