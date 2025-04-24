@@ -4,6 +4,15 @@ main {
 	min-width: 100%;
 }
 
-main article {
-	
+.cards {
+	flex-direction: row;
+}
+
+.big-less-weight {
+	font-size: 24pt;
+	text-align: center;
+}
+
+.card div {
+	max-width: fit-content;
 }
