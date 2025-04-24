@@ -1,3 +1,7 @@
-function onClickCard() {
-	card = document.getElementById(`top-card-{i}`).onclick = window.open("file:///./home/nhassl3/projects/ServicesHub/pages/card.html")
+const handleClickOnCard = event => {
+	window.location.href = "/pages/card.php";
 }
+
+document.querySelectorAll("section").forEach(item => {
+	item.addEventListener("click", handleClickOnCard);
+})

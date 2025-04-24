@@ -37,7 +37,7 @@
 			</header>
 			<div class="line-break"></div>
 			<section class="card" id='top-card-1'>
-				<img src="./assets/images/#01.png" alt="Топовый товар №1">
+				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="Топовый товар №1">
 				<div class="left-corner-desc roboto-text">
 					<h4 class='bright-text'>товар 1</h4>
 					<span class='faded-text'>₽ 5000 RUB</span>
@@ -51,7 +51,7 @@
 				</div>
 			</section>
 			<section class="card" id='top-card-3'>
-				<img src="./assets/images/#03.png" alt="Топовый товар №3">
+				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="Топовый товар №3">
 				<div class="left-corner-desc">
 					<h4 class='bright-text roboto-text'>товар 3</h4>
 					<span class='faded-text roboto-text'>₽ 4999 RUB</span>
@@ -61,5 +61,6 @@
 	</main>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
+	<script src="script.js"></script>
 </body>
 </html>

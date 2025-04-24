@@ -28,8 +28,7 @@
             </section>
         </article>
         
-        <iframe src="https://yandex.ru/map-widget/v1/?bookmarks%5Bpid%5D=work&bookmarks%5Buri%5D=ymapsbm1%3A%2F%2Fpin%3Fll%3D43.988520%252C56.318920&ll=43.994214%2C56.317176&z=15.05" width="100%" height="850px" frameborder="0" allowfullscreen="false" style="position:relative; margin-top: 5em; margin-bottom: 5em;"></iframe>
-
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abbfff341bee350da094a16b0281792994ae74ea07fe1bff6046846868a458d85&amp;source=constructor" width="100%" height="850px" frameborder="0" style="position:relative; margin-top: 5em; margin-bottom: 5em;"></iframe>
         <article class="feedback-form">
             <header>
                 <h2 class="h-2">Связаться</h2>
