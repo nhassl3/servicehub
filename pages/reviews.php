@@ -12,8 +12,49 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/header.php" ?>
 
 	<main>
-		<article>
-			
+		<article class="cards">
+			<section class="card">
+				<img src="" alt="review-1">
+				<div>
+					<h2 class="big-less-weight">Review#1</h2>
+					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+				</div>
+			</section>
+			<section class="card">
+				<img src="" alt="review-2">
+				<div>
+					<h2 class="big-less-weight">Review#2</h2>
+					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+				</div>
+			</section>
+			<section class="card">
+				<img src="" alt="review-3">
+				<div>
+					<h2 class="big-less-weight">Review#3</h2>
+					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+				</div>
+			</section>
+			<section class="card">
+				<img src="" alt="review-4">
+				<div>
+					<h2 class="big-less-weight">Review#4</h2>
+					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+				</div>
+			</section>
+			<section class="card">
+				<img src="" alt="review-5">
+				<div>
+					<h2 class="big-less-weight">Review#5</h2>
+					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+				</div>
+			</section>
+			<section class="card">
+				<img src="" alt="review-6">
+				<div>
+					<h2 class="big-less-weight">Review#6</h2>
+					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+				</div>
+			</section>
 		</article>
 	</main>
 
