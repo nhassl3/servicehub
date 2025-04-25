@@ -21,9 +21,13 @@
 	color: #555;
 	text-transform: uppercase;
 	text-decoration: none;
+	transition: color .4s ease;
+}
+.products-category-link:hover {
+	color: #ccc;
 }
 
-.categories-listing ul > li:first-child .products-category-link {
+.products-category-link.bold {
 	color: #000;
 	font-weight: 500;
 }

@@ -12,7 +12,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
 	<main>
-		<h2>404</h2>
+		<h2 class="page404">404</h2>
 		<div>Страница не найдена!</div>
 	</main>
 	

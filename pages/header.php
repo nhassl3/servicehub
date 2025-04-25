@@ -16,6 +16,9 @@
 				<li>
 					<a href="/pages/contacts.php" class='nav-link' id='contacts'>Контакты</a>
 				</li>
+				<li>
+					<a href="/pages/shopping-cart.php" class='nav-link' id='shopping-cart'>Корзина</a>
+				</li>
 			</ul>
 		</div>
 		<div class="auth-links">

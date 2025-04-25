@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ServiceHub | Продукты</title>
+	<title>ServiceHub | Категория 4 <?php //TODO: Name of the category ?></title>
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="/assets/css/style-market.css">
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
@@ -12,16 +12,16 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/header.php" ?>
 
 	<main>
-    <?php 
-      include $_SERVER['DOCUMENT_ROOT'] . "/pages/market-preview.php";
-			showCategories();
-    ?>
-    <article class="cards">
-      <?php showCards(); ?>
-    </article>
-  </main>
+			<?php 
+					include $_SERVER['DOCUMENT_ROOT'] . "/pages/market-preview.php";
+					showCategories('category4'); // 'category1' - текущая активная категория
+			?>
+			<article class="cards">
+					<?= showCards(16, false); // Показываем меньше карточек для категории ?>
+			</article>
+	</main>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.php" ?>
-	<script src="../script.js"></script>
+	<script src="../../script.js"></script>
 </body>
 </html>

@@ -6,9 +6,13 @@ main {
 	align-items: center;
 }
 
-main div h2 {
-	font-size: 68pt;
+main h2 {
+	font-size: 72pt;
 	letter-spacing:15px;
 	font-weight: 1000;
-	padding-bottom: 100px;
+	padding-bottom: 30px;
+}
+
+main div {
+	font-size: 18pt;
 }
