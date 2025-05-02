@@ -35,10 +35,12 @@ section {
 }
 
 section label {
+  width: fit-content;
 	margin-bottom: 10px;
 }
 
 textarea {
+  width: 100% !important;
   height: 100px !important;
 	box-sizing: border-box !important;
 }

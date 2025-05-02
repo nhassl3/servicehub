@@ -39,7 +39,7 @@
 					<a href="/pages/market.php" class="footer-link" id='market'>Маркет</a>
 				</li>
 				<li>
-					<a href="#" class="footer-link" id='get-maker'>Стать продавцом</a>
+					<a href="/pages/create-seller.php" class="footer-link" id='get-maker'>Стать продавцом</a>
 				</li>
 			</ul>
 		</section>
@@ -49,10 +49,10 @@
 					<h3>помощь</h3>
 				</header>
 				<li>
-					<a href="#" class="footer-link" id='support-admin'>Связь с администратором</a>
+					<a href="https://t.me/varyya777" class="footer-link" id='support-admin'>Связь с администратором</a>
 				</li>
 				<li>
-					<a href="#" class="footer-link" id='support-maker'>Связь с продавцом</a>
+					<a href="/pages/contact-seller.php" class="footer-link" id='support-maker'>Связь с продавцом</a>
 				</li>
 			</ul>
 		</section>
@@ -63,12 +63,6 @@
 				</header>
 				<li>
 					<a href="https://github.com/nhassl3" class="footer-link" id='github'>GitHub</a>
-				</li>
-				<li>
-					<a href="https://t.me/BICHOVKA777" class="footer-link" id='telegram'>Telegram</a>
-				</li>
-				<li>
-					<a href="https://vk.com/nhassle" class="footer-link" id='vk'>VK</a>
 				</li>
 			</ul>
 		</section>

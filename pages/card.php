@@ -6,13 +6,8 @@
 	<title>ServiceHub | Цифровой продукт; name-of-the-product</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="/assets/css/style-card.css">
+	<link rel="stylesheet" href="/assets/css/style-input.css">
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
-
-	<script>
-		function togglePassword(element) {
-			element.classList.toggle("show-text");
-		}
-	</script>
 </head>
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
@@ -73,8 +68,10 @@
 				<div class="count">
 					<div><label for="quantity" class="header-commerce-cartform">количество аккаунтов/лицензий</label></div>
 					<div class="product-detail-cta-wrap">
-						<div class="select-count-of-product">
-							<input class="option-select" type="number" min="1" max="10" id="quantity" name="quantity" value="1" require>
+						<div inputmode="numeric" pattern="[1-9]*" min="1" max="10" class="numeric-input">
+							<div class="set-numeric">
+								<input inputmode="numeric" pattern="[1-9]*" type="number" class="count-of-good" min="1" max="10" value="1">
+							</div>
 						</div>
 						<button type="submit" class="btn-submit">добавить в корзину</button>
 						<button type="submit" class="btn-submit">купить</button>
@@ -85,5 +82,26 @@
 	</main>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
+
+	<script>
+		function togglePassword(element) {
+			element.classList.toggle("show-text");
+		}
+
+		const countInput = document.querySelector("input.count-of-good");
+		countInput.addEventListener('change', function() {
+				const value = parseInt(this.value);
+        const min = parseInt(this.min);
+        const max = parseInt(this.max);
+                
+        if (isNaN(value)) {
+					this.value = min || 0;
+        } else if (value < min) {
+					this.value = min;
+        } else if (value > max) {
+					this.value = max;
+				}
+			});
+	</script>
 </body>
 </html>

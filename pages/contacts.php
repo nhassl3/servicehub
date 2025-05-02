@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="/assets/css/style-form.css" />
     <link rel="stylesheet" href="/assets/css/style-contacts.css">
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/connect_favicon.php'; ?>
+    <style>
+        .bright-text {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>

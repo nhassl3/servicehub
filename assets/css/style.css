@@ -52,6 +52,7 @@ header#nav {
 }
 
 .nav-link {
+	display: flex;
 	text-decoration: none;
 	font-size: 16px;
 	color: #333;
@@ -71,6 +72,13 @@ header#nav {
 	transition: width .4s, left .4s;
 }
 
+.above-link {
+	font-size: 9pt;
+	position: relative;
+	bottom: 7px;
+	color: #ccc;
+}
+
 .main-links .nav-link:hover {
 	color: #ddd;
 }
@@ -88,12 +96,14 @@ header#nav {
 	padding: 8px 15px;
 	border-radius: 5px;
 	border: 1px solid #333;
+	background-color: #000;
+	color: #fff;
 	transition: all .4s;
 }
 
 .auth-links .nav-link:hover {
-	background-color: #333;
-	color: white;
+	background-color: #fff;
+	color: #333;
 }
 
 main {
@@ -454,7 +464,7 @@ footer header div a h2 {
 	}
 
 	.nav-link {
-		display: block;
+		display: inline-flex;
 		padding: 8px 0;
 	}
 

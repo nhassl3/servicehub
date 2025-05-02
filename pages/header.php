@@ -17,7 +17,7 @@
 					<a href="/pages/contacts.php" class='nav-link' id='contacts'>Контакты</a>
 				</li>
 				<li>
-					<a href="/pages/shopping-cart.php" class='nav-link' id='shopping-cart'>Корзина</a>
+					<a href="/pages/shopping-cart.php" class='nav-link' id='shopping-cart'>Корзина<div class="above-link" id="counts-of-goods"><?php echo 5 // TODO: REG COUNT OF GOOD IN CART?></div></a>
 				</li>
 			</ul>
 		</div>

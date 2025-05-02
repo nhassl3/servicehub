@@ -11,7 +11,7 @@ function showCategories($currentCategory = 'all', $countOfCategories = 4) {
 
 	echo "<article class=\"categories\">
 	<header>
-			<h2 class=\"h-2\">Продукты</h2>
+			<h2 class=\"h-2\"><a style='color: #000; text-decoration: none; cursor: default;' href='/pages/market.php'>Продукты</a></h2>
 			<div class=\"categories-listing\">
 					<ul>";
 
@@ -43,12 +43,13 @@ function showCards($countOfCards = 16, $allCards = true) {
 	}
 }
 
-	for ($i = $startCard; $i <= $countOfCards; $i++) { 
-		echo "<section class='card'>
+	for ($i = $startCard; $i <= $countOfCards; $i++) {
+		$randomPrice = random_int(500, 5000);
+		echo "<section class='card' id='card-$i'>
 				<img src='https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg' alt='card-$i'>
 				<div class='left-corner-desc roboto-text'>
 						<h4 class='bright-text'>товар $i</h4>
-						<span class='faded-text'>₽ 5000 RUB</span>
+						<span class='faded-text'>₽ $randomPrice RUB</span>
 				</div>
 		</section>";
 	};
