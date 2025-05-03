@@ -157,6 +157,7 @@ div {
 
 .short-description {
 	display: -webkit-box;
+	line-clamp: 4;
 	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
@@ -365,6 +366,14 @@ div {
 	margin-bottom: 2px;
 }
 
+.right-section-buy .enabled-order-box {
+	display: block;
+}
+
+.right-section-buy .disabled-order-box {
+	display: none;
+}
+
 .info-about-order {
 	background-color: #f5f7fa;
 	border-top-right-radius: none;
@@ -391,11 +400,11 @@ div {
 	width: 100%;
 	transition: all .4s ease, transform .1s cubic-bezier(.55,0,1,.45);
 }
-.registration-btn:hover {
+.registration-btn:hover:not(:disabled) {
 	background-color: #fff;
 	color: #000;
 }
-.registration-btn:active {
+.registration-btn:active:not(:disabled) {
 	transform: scale(0.95);
 }
 .registration-btn:disabled {
@@ -481,7 +490,7 @@ div {
 	align-items: center;	
 }
 
-.price-with {
+.price-discount {
 	color: red;
 }
 
@@ -562,8 +571,173 @@ div {
 	letter-spacing: .4px;
 }
 
-@media(max-width: 768px) {
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1024px) {
+	.main {
+			flex-direction: column;
+	}
+	
+	.left-zone {
+			width: 100%;
+	}
+	
+	.right-section-buy {
+			width: 100%;
+			margin: 30px 0;
+	}
+	
+	.product-card {
+			flex-direction: column;
+			max-height: none;
+	}
+	
+	.card {
+			height: auto;
+			width: 100%;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+	}
+	
+	.card img {
+			width: 100%;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-bottom-left-radius: 0;
+	}
+	
+	.desc {
+			margin: 1em 0;
+	}
+	
+	.price-block, .select-count-block {
+			margin: 1em 0;
+	}
+	
+	.modal-content {
+			min-width: 60%;
+			max-width: 80%;
+	}
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+	main {
+			margin: 1em;
+	}
+	
+	.check-all {
+			padding-left: 1em;
+	}
+	
+	.left-section-buy {
+			padding: 0.1px 1em;
+	}
+	
+	.buy-selected-goods {
+			padding-left: 1em;
+			font-size: 12pt;
+	}
+	
+	.enabled, .info-about-order {
+			padding: 16px;
+	}
+	
+	.modal-content {
+			min-width: 80%;
+			max-width: 90%;
+	}
+	
+	.panel {
+			width: 100%;
+	}
+	
+	.manage-panel {
+			justify-content: space-between;
+	}
+	
+	.manage-panel-button {
+			flex: 1;
+	}
+	
+	.price {
+			font-size: 16pt;
+	}
+	
+	.price-without-discount .price {
+			font-size: 14px;
+	}
+	
+	.empty-cart {
+			height: 70vh;
+	}
+	
+	.empty__icon {
+			width: 60px;
+			height: 60px;
+	}
+	
+	.empty-field h2 {
+			font-size: 18pt;
+			text-align: center;
+	}
+	
+	.basket__text {
+			text-align: center;
+			margin-bottom: 20px;
+	}
+	
 	.sc-btn {
-		height: 30%;
+			height: 30%;
+			width: 100%;
+	}
+}
+
+/* Очень маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+	main {
+			margin: 0.5em;
+	}
+	
+	.h-2 {
+			font-size: 18pt;
+	}
+	
+	.above-header {
+			font-size: 12pt;
+	}
+	
+	.product-card {
+			margin-bottom: 2em;
+	}
+	
+	.short-description {
+			-webkit-line-clamp: 3;
+			line-clamp: 3;
+	}
+	
+	.change-count {
+			width: 100%;
+	}
+	
+	.numeric-input {
+			flex: 1;
+			text-align: center;
+	}
+	
+	.modal-content {
+			min-width: 90%;
+			max-width: 95%;
+	}
+	
+	.modal-content h2 {
+			font-size: 18pt;
+	}
+	
+	.empty-field {
+			padding: 20px 16px 30px;
+	}
+	
+	.empty__icon {
+			margin-bottom: 20px;
 	}
 }

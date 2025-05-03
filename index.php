@@ -10,7 +10,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/connect_favicon.php'; ?>
 </head>
 <body>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php';?>
 
 	<main role='main'>
 		<article class="description">

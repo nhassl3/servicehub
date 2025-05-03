@@ -20,3 +20,9 @@ main {
 	font-size: 91pt;
 	font-weight: bold;
 }
+
+@media(max-width: 768px) {
+	.develop {
+		font-size: 62pt;
+	}
+}

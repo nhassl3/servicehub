@@ -10,7 +10,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
 </head>
 <body>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
+	<?php $productId=1; include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
 	<main>
 		<article class="image">
@@ -73,8 +73,8 @@
 								<input inputmode="numeric" pattern="[1-9]*" type="number" class="count-of-good" min="1" max="10" value="1">
 							</div>
 						</div>
-						<button type="submit" class="btn-submit">добавить в корзину</button>
-						<button type="submit" class="btn-submit">купить</button>
+						<button type="submit" class="btn-submit" onclick="addingToCart()">добавить в корзину</button>
+						<button type="submit" class="btn-submit" onclick="gotoBuy(<?php echo $productId ?>);">купить</button>
 					</div>
 				</div>
 			</div>
@@ -83,25 +83,6 @@
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
 
-	<script>
-		function togglePassword(element) {
-			element.classList.toggle("show-text");
-		}
-
-		const countInput = document.querySelector("input.count-of-good");
-		countInput.addEventListener('change', function() {
-				const value = parseInt(this.value);
-        const min = parseInt(this.min);
-        const max = parseInt(this.max);
-                
-        if (isNaN(value)) {
-					this.value = min || 0;
-        } else if (value < min) {
-					this.value = min;
-        } else if (value > max) {
-					this.value = max;
-				}
-			});
-	</script>
+	<script src="/assets/js/card.js"></script>
 </body>
 </html>
