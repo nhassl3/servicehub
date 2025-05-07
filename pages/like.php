@@ -13,5 +13,3 @@ if ($productId !== null && isset($_SESSION['goods'][$productId])) {
 } else {
 	echo json_encode(["status" => false]);
 }
-
-?>

@@ -8,13 +8,16 @@
 
 .categories-listing ul {
 	display: flex;
-  flex-wrap: wrap; /* Переносит элементы на новую строку при нехватке места */
-  gap: 15px; /* Отступ между элементами */
-  list-style: none; /* Убирает маркеры списка */
+	flex-wrap: wrap;
+	/* Переносит элементы на новую строку при нехватке места */
+	gap: 15px;
+	/* Отступ между элементами */
+	list-style: none;
+	/* Убирает маркеры списка */
 	justify-content: center;
 	align-items: center;
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .products-category-link {
@@ -23,6 +26,7 @@
 	text-decoration: none;
 	transition: color .4s ease;
 }
+
 .products-category-link:hover {
 	color: #ccc;
 }

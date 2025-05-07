@@ -13,7 +13,8 @@ main {
 }
 
 div {
-	padding: 0; margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .h-2 {
@@ -38,65 +39,65 @@ div {
 }
 
 .custom-checkbox {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
 }
 
 /* Скрываем нативный чекбокс, но оставляем его доступным для фокуса и клика */
 .custom-checkbox input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 
 /* Кастомный чекбокс */
 .custom-checkbox__checkmark {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background: white;
-  position: relative;
-  transition: all 0.2s;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background: white;
+	position: relative;
+	transition: all 0.2s;
 }
 
 /* Галочка (скрыта по умолчанию) */
 .custom-checkbox__checkmark::after {
-  content: "";
-  position: absolute;
-  display: none;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+	content: "";
+	position: absolute;
+	display: none;
+	left: 5px;
+	top: 1px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
 }
 
 /* Состояние: чекбокс отмечен */
-.custom-checkbox input:checked + .custom-checkbox__checkmark {
-  background: #2196F3;
-  border-color: #2196F3;
+.custom-checkbox input:checked+.custom-checkbox__checkmark {
+	background: #2196F3;
+	border-color: #2196F3;
 }
 
-.custom-checkbox input:checked + .custom-checkbox__checkmark::after {
-  display: block;
+.custom-checkbox input:checked+.custom-checkbox__checkmark::after {
+	display: block;
 }
 
 /* Состояние: фокус (доступность) */
-.custom-checkbox input:focus-visible + .custom-checkbox__checkmark {
-  outline: 2px solid #005fcc;
-  outline-offset: 2px;
+.custom-checkbox input:focus-visible+.custom-checkbox__checkmark {
+	outline: 2px solid #005fcc;
+	outline-offset: 2px;
 }
 
 /* Состояние: наведение */
-.custom-checkbox:hover input:not(:checked) + .custom-checkbox__checkmark {
-  border-color: #888;
+.custom-checkbox:hover input:not(:checked)+.custom-checkbox__checkmark {
+	border-color: #888;
 }
 
 .goods {
@@ -173,7 +174,7 @@ div {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,.7);
+	background-color: rgba(0, 0, 0, .7);
 	z-index: 1000;
 	align-items: center;
 	justify-content: center;
@@ -207,20 +208,43 @@ div {
 	cursor: pointer;
 }
 
-/* Continue with description of the good */
+/* [+] More details modal content */
+.more-detail-modal {
+	display: flex;
+}
+
+#more-detail-content h2 {
+	margin-bottom: 12px;
+}
+
+.more-detail-span {
+	flex: 1;
+}
+
+.more-detail-span-discount {
+	color: #005bff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: right;
+	font-weight: bold;
+}
+
+/* Description of the good */
 
 .desc div {
 	margin-bottom: 2.7em;
 }
+
 .desc div:last-child {
 	margin-bottom: 0;
 }
 
 .fs-w {
 	font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .2px;
-  line-height: 20px;
+	font-weight: 500;
+	letter-spacing: .2px;
+	line-height: 20px;
 }
 
 .fs-w.bold {
@@ -248,7 +272,8 @@ div {
 
 .manage-panel-button {
 	display: inline-flex;
-	background: rgba(1, 21, 41, .08); color: rgb(0, 26, 52);
+	background: rgba(1, 21, 41, .08);
+	color: rgb(0, 26, 52);
 	align-items: center;
 	justify-content: center;
 	border-radius: 8px;
@@ -260,25 +285,29 @@ div {
 	position: relative;
 	-webkit-font-smoothing: antialiased;
 	transition:
-	 transform .1s cubic-bezier(.55,0,1,.45),
-	  background-color .4s ease;
+		transform .1s cubic-bezier(.55, 0, 1, .45),
+		background-color .4s ease;
 }
+
 .manage-panel-button:not(:disabled) {
 	cursor: pointer;
 }
+
 .manage-panel-button:hover:not(:disabled) {
-  transform: scale(1.07);
+	transform: scale(1.07);
 }
+
 .manage-panel-button:active:not(:disabled) {
 	transform: scale(0.93);
 }
+
 .manage-panel-button:disabled {
 	background-color: rgba(0, 0, 0, .02);
 }
 
 .like.clicked {
-	background:rgba(255, 121, 140, 0.078) !important;
-	color:rgba(241, 17, 126, 1) !important;
+	background: rgba(255, 121, 140, 0.078) !important;
+	color: rgba(241, 17, 126, 1) !important;
 }
 
 .a32-panel {
@@ -344,177 +373,6 @@ div {
 	gap: 10px;
 }
 
-/* Buy process */
-
-.right-section-buy {
-	margin-left: 3em;
-	height: 100%;
-	width: 130%;
-	float: right;
-	position: sticky;
-	top: 25px;
-}
-
-.enabled {
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: none;
-	border-bottom-right-radius: none;
-	height: 100%;
-	background-color: #f5f7fa;
-	padding: 32px 32px;
-	margin-bottom: 2px;
-}
-
-.right-section-buy .enabled-order-box {
-	display: block;
-}
-
-.right-section-buy .disabled-order-box {
-	display: none;
-}
-
-.info-about-order {
-	background-color: #f5f7fa;
-	border-top-right-radius: none;
-	border-top-left-radius: none;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	height: 100%;
-	padding: 16px 32px;
-}
-
-.registration-btn {
-	display: flex;
-	border: 0;	
-	font-size: 14pt;
-	font-weight: 550;
-	height: 56px;
-	color: #fff;
-	background-color: #000;
-	justify-content: center;
-	align-items: center;
-	border-radius: 8px;
-	padding: 12px 16px;
-	position: relative;
-	width: 100%;
-	transition: all .4s ease, transform .1s cubic-bezier(.55,0,1,.45);
-}
-.registration-btn:hover:not(:disabled) {
-	background-color: #fff;
-	color: #000;
-}
-.registration-btn:active:not(:disabled) {
-	transform: scale(0.95);
-}
-.registration-btn:disabled {
-	background-color: rgba(0, 50, 58, .04);
-	color: #84888b
-}
-
-.large-text {
-	background-color: rgba(0, 50, 57, .1);
-	border-radius: 8px;
-	margin-top: 1.5em;
-}
-
-.annotation {
-	width: 100%;
-	box-sizing: border-box;
-	color: #3d5165;
-	border-radius: 16px;
-  font-size: 14px;
-  line-height: 18px;
-  padding: 16px 24px 16px 16px;
-  position: relative;
-}
-
-.d394-a1 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.d394-a3 {
-	margin-right: 8px;
-	width: fit-content;
-}
-
-.info-about-order {
-	border-top-right-radius: none;
-	border-top-left-radius: none;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-.order-box {
-	display: flex;
-}
-.order-box:not(:last-child) {
-	margin-bottom: 17px;
-}
-.order-box:last-child {
-	margin-top: 17px
-}
-
-.left-section-order-box:not(:last-child) {
-	flex: 1;
-	margin-right: 30px;
-}
-
-.order-count-goods {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #444;
-	font-weight: 500;
-	font-size: 14px;
-}
-
-.goto-more-details {
-	color: #005bff;
-	cursor: pointer;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-weight: 500;
-	font-size: 14px;
-}
-
-.count-price-reg {
-	display: flex;
-	font-weight: 500;
-	font-size: 14px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	justify-content: center;
-	align-items: center;	
-}
-
-.price-discount {
-	color: red;
-}
-
-.more-detail-modal {
-	display: flex;
-}
-
-#more-detail-content h2 {
-	margin-bottom: 12px;
-}
-
-.more-detail-span {
-	flex: 1;
-}
-
-.more-detail-span-discount {
-	color: #005bff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	float: right;
-	font-weight: bold;
-}
-
 /* Empty cart area */
 .empty-cart {
 	display: flex;
@@ -558,7 +416,7 @@ div {
 	display: flex;
 	padding: 12px 16px;
 	align-items: center;
- 	justify-content: center;
+	justify-content: center;
 	text-align: center;
 	text-decoration: none;
 	margin: 0;
@@ -574,170 +432,161 @@ div {
 /* Планшеты (768px - 1024px) */
 @media (max-width: 1024px) {
 	.main {
-			flex-direction: column;
+		flex-direction: column;
 	}
-	
+
 	.left-zone {
-			width: 100%;
+		width: 100%;
 	}
-	
-	.right-section-buy {
-			width: 100%;
-			margin: 30px 0;
-	}
-	
+
 	.product-card {
-			flex-direction: column;
-			max-height: none;
+		flex-direction: column;
+		max-height: none;
 	}
-	
+
 	.card {
-			height: auto;
-			width: 100%;
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
+		height: auto;
+		width: 100%;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
 	}
-	
+
 	.card img {
-			width: 100%;
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
-			border-bottom-left-radius: 0;
+		width: 100%;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 0;
 	}
-	
+
 	.desc {
-			margin: 1em 0;
+		margin: 1em 0;
 	}
-	
+
 	.price-block, .select-count-block {
-			margin: 1em 0;
+		margin: 1em 0;
 	}
-	
+
 	.modal-content {
-			min-width: 60%;
-			max-width: 80%;
+		min-width: 60%;
+		max-width: 80%;
 	}
 }
 
 /* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
 	main {
-			margin: 1em;
+		margin: 1em;
 	}
-	
+
 	.check-all {
-			padding-left: 1em;
+		padding-left: 1em;
 	}
-	
+
 	.left-section-buy {
-			padding: 0.1px 1em;
+		padding: 0.1px 1em;
 	}
-	
+
 	.buy-selected-goods {
-			padding-left: 1em;
-			font-size: 12pt;
+		padding-left: 1em;
+		font-size: 12pt;
 	}
-	
-	.enabled, .info-about-order {
-			padding: 16px;
-	}
-	
+
 	.modal-content {
-			min-width: 80%;
-			max-width: 90%;
+		min-width: 80%;
+		max-width: 90%;
 	}
-	
+
 	.panel {
-			width: 100%;
+		width: 100%;
 	}
-	
+
 	.manage-panel {
-			justify-content: space-between;
+		justify-content: space-between;
 	}
-	
+
 	.manage-panel-button {
-			flex: 1;
+		flex: 1;
 	}
-	
+
 	.price {
-			font-size: 16pt;
+		font-size: 16pt;
 	}
-	
+
 	.price-without-discount .price {
-			font-size: 14px;
+		font-size: 14px;
 	}
-	
+
 	.empty-cart {
-			height: 70vh;
+		height: 70vh;
 	}
-	
+
 	.empty__icon {
-			width: 60px;
-			height: 60px;
+		width: 60px;
+		height: 60px;
 	}
-	
+
 	.empty-field h2 {
-			font-size: 18pt;
-			text-align: center;
+		font-size: 18pt;
+		text-align: center;
 	}
-	
+
 	.basket__text {
-			text-align: center;
-			margin-bottom: 20px;
+		text-align: center;
+		margin-bottom: 20px;
 	}
-	
+
 	.sc-btn {
-			height: 30%;
-			width: 100%;
+		height: 30%;
+		width: 100%;
 	}
 }
 
 /* Очень маленькие экраны (до 480px) */
 @media (max-width: 480px) {
 	main {
-			margin: 0.5em;
+		margin: 0.5em;
 	}
-	
+
 	.h-2 {
-			font-size: 18pt;
+		font-size: 18pt;
 	}
-	
+
 	.above-header {
-			font-size: 12pt;
+		font-size: 12pt;
 	}
-	
+
 	.product-card {
-			margin-bottom: 2em;
+		margin-bottom: 2em;
 	}
-	
+
 	.short-description {
-			-webkit-line-clamp: 3;
-			line-clamp: 3;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
 	}
-	
+
 	.change-count {
-			width: 100%;
+		width: 100%;
 	}
-	
+
 	.numeric-input {
-			flex: 1;
-			text-align: center;
+		flex: 1;
+		text-align: center;
 	}
-	
+
 	.modal-content {
-			min-width: 90%;
-			max-width: 95%;
+		min-width: 90%;
+		max-width: 95%;
 	}
-	
+
 	.modal-content h2 {
-			font-size: 18pt;
+		font-size: 18pt;
 	}
-	
+
 	.empty-field {
-			padding: 20px 16px 30px;
+		padding: 20px 16px 30px;
 	}
-	
+
 	.empty__icon {
-			margin-bottom: 20px;
+		margin-bottom: 20px;
 	}
 }

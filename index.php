@@ -1,16 +1,20 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>
 		ServiceHub | Главная
 	</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/connect_favicon.php'; ?>
 </head>
+
 <body>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php';?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
 	<main role='main'>
 		<article class="description">
@@ -37,24 +41,24 @@
 			</header>
 			<div class="line-break"></div>
 			<section class="card" id='top-card-1'>
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="Топовый товар №1">
+				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" class='img-card' alt="Топовый товар №1">
 				<div class="left-corner-desc roboto-text">
 					<h4 class='bright-text'>товар 1</h4>
 					<span class='faded-text'>₽ 5000 RUB</span>
 				</div>
 			</section>
 			<section class="card" id='top-card-2'>
-				<img src="./assets/images/blumtap.png" alt="Топовый товар №2">
+				<img src="./assets/images/blumtap.png" class='img-card' alt="Топовый товар №2">
 				<div class="left-corner-desc roboto-text">
 					<h4 class='bright-text'>blum tap 🫵</h4>
 					<span class='faded-text'>₽ 3200 RUB</span>
 				</div>
 			</section>
 			<section class="card" id='top-card-3'>
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="Топовый товар №3">
-				<div class="left-corner-desc">
-					<h4 class='bright-text roboto-text'>товар 3</h4>
-					<span class='faded-text roboto-text'>₽ 4999 RUB</span>
+				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" class='img-card' alt="Топовый товар №3">
+				<div class="left-corner-desc robot-text">
+					<h4 class='bright-text'>товар 3</h4>
+					<span class='faded-text'>₽ 4999 RUB</span>
 				</div>
 			</section>
 		</article>
@@ -63,4 +67,5 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
 	<script src="script.js"></script>
 </body>
+
 </html>

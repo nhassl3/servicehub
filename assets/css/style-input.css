@@ -9,7 +9,7 @@
 	overflow: hidden;
 	position: relative;
 	text-overflow: ellipsis;
-	transition: border-color .2s cubic-bezier(.25,.8,.25,1);
+	transition: border-color .2s cubic-bezier(.25, .8, .25, 1);
 	white-space: nowrap;
 	will-change: transform, border-color, top, background-color;
 }
@@ -30,18 +30,19 @@
 	vertical-align: top;
 	outline: none;
 	margin: 0;
-	color:inherit;
+	color: inherit;
 	caret-color: #005bff;
 	box-sizing: border-box;
 	border: 0;
 	-webkit-text-fill-color: #001a34;
-  background-color: hsla(0, 0%, 100%, 0);
+	background-color: hsla(0, 0%, 100%, 0);
 	font-style: normal;
 	letter-spacing: normal;
 	text-decoration: none;
 	text-transform: none;
 	word-spacing: normal;
-	-moz-appearance: textfield; /* Firefox */
+	-moz-appearance: textfield;
+	/* Firefox */
 }
 
 /* Remove arrows up and down for numeric type of input tag */

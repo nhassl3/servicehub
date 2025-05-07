@@ -1,9 +1,7 @@
-<?php 
+<?php
 session_start();
 
 $productId = (int) file_get_contents('php://input') ?? null;
-
-echo $_SESSION['goods'][$productId];
 
 if ($productId !== null && isset($_SESSION['goods'][$productId])) {
 	unset($_SESSION["goods"][$productId]);
@@ -18,5 +16,3 @@ if ($productId !== null && isset($_SESSION['goods'][$productId])) {
 	}
 	echo json_encode(['success' => false]);
 }
-
-?>

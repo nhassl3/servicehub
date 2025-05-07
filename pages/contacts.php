@@ -1,5 +1,8 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +17,7 @@
         }
     </style>
 </head>
+
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
@@ -32,30 +36,30 @@
                 <div>nhassl3@nhassl3.ru</div>
             </section>
         </article>
-        
+
         <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abbfff341bee350da094a16b0281792994ae74ea07fe1bff6046846868a458d85&amp;source=constructor" width="100%" height="850px" frameborder="0" style="position:relative; margin-top: 5em; margin-bottom: 5em;"></iframe>
         <article class="feedback-form">
             <header>
                 <h2 class="h-2">Связаться</h2>
             </header>
-                <form style="width: 415px;">
-                    <section>
-                        <label for="name" class='lbl-int'>имя</label>
-                        <input type="text" placeholder="Введите свое имя" id="name" name="name" class="ipt-data">
-                    </section>
-                    <section>
-                        <label for="email" class='lbl-int'>адрес электронной почты</label>
-                        <input type="text" id="email" placeholder="Введите свой email" name="email" class="ipt-data">
-                    </section>
-                   <section>
+            <form style="width: 415px;">
+                <section>
+                    <label for="name" class='lbl-int'>имя</label>
+                    <input type="text" placeholder="Введите свое имя" id="name" name="name" class="ipt-data">
+                </section>
+                <section>
+                    <label for="email" class='lbl-int'>адрес электронной почты</label>
+                    <input type="text" id="email" placeholder="Введите свой email" name="email" class="ipt-data">
+                </section>
+                <section>
                     <label for="message" class='lbl-int'>сообщение</label>
                     <textarea type="text" id="message" name="message" placeholder="Введите свое сообщение" class="ipt-data" maxlength=200 rows=30></textarea>
-                   </section>
+                </section>
 
-                    <button type="submit" class="btn-submit">Отправить</button>
-                </form>
+                <button type="submit" class="btn-submit">Отправить</button>
+            </form>
         </article>
-    </main> 
+    </main>
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
 </body>
