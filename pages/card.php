@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+$productId = 1;
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,12 +13,13 @@
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="/assets/css/style-card.css">
 	<link rel="stylesheet" href="/assets/css/style-input.css">
+	<link rel="stylesheet" href="/assets/css/style-notification.css">
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
+	<!-- B -->
 </head>
 
 <body>
-	<?php $productId = 1;
-	include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/header.php'; ?>
 
 	<main>
 		<article class="image">
@@ -78,19 +82,24 @@
 					<div class="product-detail-cta-wrap">
 						<div inputmode="numeric" pattern="[1-9]*" min="1" max="10" class="numeric-input">
 							<div class="set-numeric">
-								<input inputmode="numeric" pattern="[1-9]*" type="number" class="count-of-good" min="1" max="10" value="1">
+								<input inputmode="numeric" pattern="[1-9]*" type="number" class="count-of-good" id="quantity" min="1" max="10" value="1">
 							</div>
 						</div>
-						<button type="submit" class="btn-submit" onclick="<?php echo $_SESSION['isLoggedIn;'] ? "addingToCart();" : "window.location.href = '/pages/auth/register.php'" ?>">добавить в корзину</button>
+						<button type="submit" class="btn-submit" id='success-adding-to-cart' data-logged='<?php echo (int) $_SESSION['isLoggedIn']; ?>' data-alert='1'>добавить в корзину</button>
 						<button type="submit" class="btn-submit" onclick="gotoBuy(<?php echo $productId ?>);">купить</button>
 					</div>
 				</div>
 			</div>
 		</article>
+		<article class="notifications">
+
+		</article>
 	</main>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
 
+	<script src='/script.js'></script>
+	<script src="/assets/js/notifications.js"></script>
 	<script src="/assets/js/card.js"></script>
 </body>
 

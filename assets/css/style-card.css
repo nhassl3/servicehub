@@ -34,7 +34,7 @@ img:hover {
 	margin: 5em 7em;
 }
 
-header {
+.product-detail header {
 	font-size: 25pt;
 	margin-bottom: .7em;
 }
@@ -225,8 +225,14 @@ button[type="submit"] {
 	}
 
 	.product-detail-cta-wrap {
+		height: auto;
 		flex-direction: column;
 		gap: 15px;
+	}
+
+	.numeric-input {
+		max-width: 4%;
+		min-height: 100%;
 	}
 
 	button[type="submit"] {
@@ -252,6 +258,10 @@ button[type="submit"] {
 		font-size: 16pt;
 	}
 
+	.numeric-input {
+		max-width: 6%;
+	}
+
 	.description,
 	.w-list-unstyled ul li {
 		font-size: 10pt;
@@ -270,6 +280,12 @@ button[type="submit"] {
 
 	.product-detail-cta-wrap {
 		gap: 15px;
+	}
+}
+
+@media (max-width: 570px) {
+	.numeric-input {
+		max-width: 8%;
 	}
 }
 
@@ -292,6 +308,10 @@ button[type="submit"] {
 	.align-right-list {
 		width: 100%;
 		justify-content: flex-end;
+	}
+
+	.numeric-input {
+		max-width: 10%;
 	}
 
 	.product-detail-cta-wrap {

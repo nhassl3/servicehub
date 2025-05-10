@@ -17,8 +17,29 @@ function openModal(contentType, dataId = null) {
 		}
 
 		if (contentType === "delete" && dataId !== null) {
-			contentElement.querySelector('button#delete-card').onclick = function () {
-				deleteProduct(dataId)
+			contentElement.querySelector('button#delete-card').onclick = async function (e) {
+				{
+					e.preventDefault()
+					try {
+						const response = await fetch("/pages/delete_product.php", {
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify(dataId),
+						})
+						const data = await response.json()
+
+						if (data.success) {
+							toggleProductSelection(document.getElementById(`checkbox-${dataId}`), dataId)
+							document.querySelector(`#product-data-${dataId}`).remove()
+							selectedGoods = selectedGoods.filter(item => item.id !== dataId)
+
+							closeModal()
+							updateCountsInCart(e)
+						}
+					} catch (error) {
+						console.error("Error in deleting: ", error)
+					}
+				}
 			}
 		}
 	}
@@ -52,28 +73,6 @@ function toggleLike(button, id) {
 		})
 	} catch (error) {
 		console.error("Error in toggle like: ", error)
-	}
-}
-
-async function deleteProduct(productId) {
-	try {
-		const response = await fetch("/pages/delete_product.php", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(productId),
-		})
-		const data = await response.json()
-
-		if (data.success) {
-			toggleProductSelection(document.getElementById(`checkbox-${productId}`), productId)
-			document.querySelector(`#product-data-${productId}`).remove()
-			selectedGoods = selectedGoods.filter(item => item.id !== productId)
-
-			closeModal()
-			window.location.reload()
-		}
-	} catch (error) {
-		console.error("Error in deleting: ", error)
 	}
 }
 

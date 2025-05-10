@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+function splitPrice($price): string
+{
+	return number_format($price, 0, ".", " ");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -17,13 +26,6 @@
 
 	<main>
 		<?php
-		session_start();
-
-		function splitPrice($price): string
-		{
-			return number_format($price, 0, ".", " ");
-		}
-
 		if ($_SESSION['isLoggedIn'] && $_SESSION['goods']) {
 		?>
 			<header>
@@ -196,6 +198,7 @@
 	<script>
 		const goodsData = <?php echo json_encode($_SESSION['goods']); ?>
 	</script>
+	<script src='/script.js'></script>
 	<script src="/assets/js/cart.js"></script>
 </body>
 

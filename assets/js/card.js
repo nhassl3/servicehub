@@ -17,26 +17,45 @@ countInput.addEventListener('change', function () {
 	}
 })
 
-// adding to cart
-async function addingToCart() {
-	try {
-		const response = await fetch("/pages/add-to-cart.php", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-		})
-		const data = await response.json()
-
-		if (data.status) {
-			window.location.reload()
-			return
-		} else {
-			alert("Не удалось добавить продукт в корзину!")
-		}
-	} catch (error) {
-		console.error("Error in adding good: ", error)
-	}
-}
-
 function gotoBuy(productId) {
 	window.location.href = `/pages/gocheckout.php?productId=${productId}`
 }
+
+// adding to cart
+addButton.addEventListener('click', async (e) => {
+	{
+		if (addButton.dataset.logged === '1') {
+			e.preventDefault()
+			try {
+				const response = await fetch("/pages/add-to-cart.php", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+				})
+				const data = await response.json()
+
+				if (data.status) {
+					addNotification(addButton)
+					updateCountsInCart(e)
+				} else {
+					alert("Не удалось добавить продукт в корзину!")
+				}
+			} catch (error) {
+				console.error("Error in adding good: ", error)
+			}
+		} else {
+			window.location.href = "/pages/auth/register.php"
+		}
+	}
+})
+
+window.addEventListener('animationend', e => {
+	if (e.target.classList.contains('notification')) {
+		e.target.remove()
+	}
+})
+
+window.addEventListener('click', e => {
+	if (e.target.classList.contains('close-btn')) {
+		e.target.parentElement.parentElement.remove()
+	}
+})

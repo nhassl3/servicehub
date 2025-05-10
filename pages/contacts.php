@@ -9,7 +9,6 @@
     <title>ServiceHub | Контакты</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/style-form.css" />
-    <link rel="stylesheet" href="/assets/css/style-contacts.css">
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/connect_favicon.php'; ?>
     <style>
         .bright-text {
@@ -45,11 +44,11 @@
             <form style="width: 415px;">
                 <section>
                     <label for="name" class='lbl-int'>имя</label>
-                    <input type="text" placeholder="Введите свое имя" id="name" name="name" class="ipt-data">
+                    <input type="text" placeholder="Введите свое имя" id="name" name="name" class="ipt-data" autocomplete="additional-name">
                 </section>
                 <section>
                     <label for="email" class='lbl-int'>адрес электронной почты</label>
-                    <input type="text" id="email" placeholder="Введите свой email" name="email" class="ipt-data">
+                    <input type="text" id="email" placeholder="Введите свой email" name="email" class="ipt-data" autocomplete='email'>
                 </section>
                 <section>
                     <label for="message" class='lbl-int'>сообщение</label>
