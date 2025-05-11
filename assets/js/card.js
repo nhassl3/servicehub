@@ -47,15 +47,3 @@ addButton.addEventListener('click', async (e) => {
 		}
 	}
 })
-
-window.addEventListener('animationend', e => {
-	if (e.target.classList.contains('notification')) {
-		e.target.remove()
-	}
-})
-
-window.addEventListener('click', e => {
-	if (e.target.classList.contains('close-btn')) {
-		e.target.parentElement.parentElement.remove()
-	}
-})

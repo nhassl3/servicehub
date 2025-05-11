@@ -40,21 +40,21 @@
 				<p class='faded-text'>Ознакомьтесь с новыми и популярными продуктами</p>
 			</header>
 			<div class="line-break"></div>
-			<section class="card" id='top-card-1'>
+			<section class="card" id='clickable'>
 				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" class='img-card' alt="Топовый товар №1">
 				<div class="left-corner-desc roboto-text">
 					<h4 class='bright-text'>товар 1</h4>
 					<span class='faded-text'>₽ 5000 RUB</span>
 				</div>
 			</section>
-			<section class="card" id='top-card-2'>
+			<section class="card" id='clickable'>
 				<img src="./assets/images/blumtap.png" class='img-card' alt="Топовый товар №2">
 				<div class="left-corner-desc roboto-text">
 					<h4 class='bright-text'>blum tap 🫵</h4>
 					<span class='faded-text'>₽ 3200 RUB</span>
 				</div>
 			</section>
-			<section class="card" id='top-card-3'>
+			<section class="card" id='clickable'>
 				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" class='img-card' alt="Топовый товар №3">
 				<div class="left-corner-desc robot-text">
 					<h4 class='bright-text'>товар 3</h4>
@@ -64,7 +64,7 @@
 		</article>
 	</main>
 
-	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.html'; ?>
 	<script src="script.js"></script>
 </body>
 

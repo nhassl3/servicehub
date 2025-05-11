@@ -17,7 +17,8 @@ function openModal(contentType, dataId = null) {
 		}
 
 		if (contentType === "delete" && dataId !== null) {
-			contentElement.querySelector('button#delete-card').onclick = async function (e) {
+			const button = contentElement.querySelector("button#delete-card")
+			button.onclick = async function (e) {
 				{
 					e.preventDefault()
 					try {
@@ -33,7 +34,16 @@ function openModal(contentType, dataId = null) {
 							document.querySelector(`#product-data-${dataId}`).remove()
 							selectedGoods = selectedGoods.filter(item => item.id !== dataId)
 
+							if (await countCart(e) === 0) {
+								const mainElement = document.querySelector('.container')
+								fetch('/pages/empty-cart.html')
+									.then(response => response.text())
+									.then(html => {
+										mainElement.innerHTML = html
+									})
+							}
 							closeModal()
+							addNotification(button)
 							updateCountsInCart(e)
 						}
 					} catch (error) {

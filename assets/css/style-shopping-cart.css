@@ -1,7 +1,12 @@
 main {
-	margin: 3em;
+	margin: 0;
 	padding: 0;
-	height: 100%;
+	width: 100%;
+}
+
+.container {
+	margin: 3em;
+	height: fit-content;
 }
 
 .main {
@@ -10,11 +15,6 @@ main {
 
 .left-zone {
 	display: block;
-}
-
-div {
-	padding: 0;
-	margin: 0;
 }
 
 .h-2 {
@@ -199,7 +199,7 @@ div {
 	width: 90%;
 }
 
-.close-btn {
+.close-btn-modal {
 	position: absolute;
 	float: right;
 	top: -10px;
@@ -380,7 +380,7 @@ div {
 	align-items: center;
 	border-radius: 10px;
 	background-color: #f5f7fa;
-	height: 85%;
+	height: 400px;
 }
 
 .empty__icon {

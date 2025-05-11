@@ -50,5 +50,5 @@
 		</article>
 	</main>
 
-	<?php include 'footer.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.html'; ?>
 </body>

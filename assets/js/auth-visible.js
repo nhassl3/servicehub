@@ -13,6 +13,14 @@ if (document.querySelector('div.profile')) {
 		profileBtn.classList.toggle('active')
 		toggleAttributes(profileBtn.classList.contains('active'))
 	})
+
+	window.addEventListener('click', e => {
+		const isActive = profileBtn.classList.contains('active')
+		if (isActive && !e.target.classList.contains('profile-btn')) {
+			profileBtn.classList.toggle('active')
+			toggleAttributes(isActive)
+		}
+	})
 }
 
 async function exitFromAccount() {

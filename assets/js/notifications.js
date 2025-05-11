@@ -68,4 +68,18 @@ function addNotification(element) {
 	const id = element.dataset.alert
 	const n = notifications[id].cloneNode(true)
 	output.appendChild(n)
+	output.style.display = 'flex'
 }
+
+window.addEventListener('animationend', e => {
+	if (e.target.classList.contains('notification')) {
+		e.target.remove()
+		output.style.display = 'none'
+	}
+})
+
+window.addEventListener('click', e => {
+	if (e.target.classList.contains('close-btn')) {
+		e.target.parentElement.parentElement.remove()
+	}
+})

@@ -17,52 +17,23 @@
 
 	<main>
 		<article class="cards">
-			<section class="card">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-1">
-				<div>
-					<h2 class="big-less-weight">Review#1</h2>
-					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
-				</div>
-			</section>
-			<section class="card">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-2">
-				<div>
-					<h2 class="big-less-weight">Review#2</h2>
-					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
-				</div>
-			</section>
-			<section class="card">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-3">
-				<div>
-					<h2 class="big-less-weight">Review#3</h2>
-					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
-				</div>
-			</section>
-			<section class="card">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-4">
-				<div>
-					<h2 class="big-less-weight">Review#4</h2>
-					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
-				</div>
-			</section>
-			<section class="card">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-5">
-				<div>
-					<h2 class="big-less-weight">Review#5</h2>
-					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
-				</div>
-			</section>
-			<section class="card">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-6">
-				<div>
-					<h2 class="big-less-weight">Review#6</h2>
-					<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
-				</div>
-			</section>
+			<?php
+			for ($i = 1; $i <= 8; $i++) {
+			?>
+				<section class="card" id='clickable'>
+					<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="review-<?= $i ?>">
+					<div>
+						<h2 class="big-less-weight">Review#<?= $i ?></h2>
+						<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex cumque, a veritatis iure ea! Sint molestiae corporis atque autem!</div>
+					</div>
+				</section>
+			<?php
+			}
+			?>
 		</article>
 	</main>
 
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.php" ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.html" ?>
 	<script src="../script.js"></script>
 </body>
 

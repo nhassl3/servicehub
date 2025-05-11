@@ -8,6 +8,10 @@ main {
 	flex-direction: row;
 }
 
+.cards img {
+	flex: 1;
+}
+
 .big-less-weight {
 	font-size: 24pt;
 	text-align: center;

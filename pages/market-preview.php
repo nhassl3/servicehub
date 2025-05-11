@@ -47,7 +47,7 @@ function showCards($countOfCards = 16, $allCards = true)
 
 	for ($i = $startCard; $i <= $countOfCards; $i++) {
 		$randomPrice = random_int(500, 5000);
-		echo "<section class='card' id='card-$i'>
+		echo "<section class='card' id='clickable'>
 				<img src='https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg'class='img-card' alt='card-$i'>
 				<div class='left-corner-desc roboto-text'>
 						<h4 class='bright-text'>товар $i</h4>

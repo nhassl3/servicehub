@@ -20,7 +20,7 @@
 		<div>Страница не найдена!</div>
 	</main>
 
-	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.php'; ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/footer.html'; ?>
 </body>
 
 </html>

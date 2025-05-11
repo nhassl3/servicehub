@@ -23,7 +23,7 @@
 		<!-- <//?php include $_SERVER['DOCUMENT_ROOT'] . '/pages/gocheckout-section.php' ?> -->
 	</main>
 
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.php" ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.html" ?>
 </body>
 
 </html>

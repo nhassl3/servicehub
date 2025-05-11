@@ -45,7 +45,7 @@ if (empty($_SESSION['csrf_token'])) {
 		</article>
 	</main>
 
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.php" ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.html" ?>
 	<script src="/assets/js/login.js"></script>
 </body>
 

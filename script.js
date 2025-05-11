@@ -2,23 +2,18 @@ const handleClickOnCard = event => {
 	window.location.href = "/pages/card.php"
 }
 
-document.querySelectorAll("section.card").forEach(item => {
+document.querySelectorAll("section.card#clickable").forEach(item => {
 	item.addEventListener("click", handleClickOnCard)
 })
 
 async function countCart(e) {
 	e.preventDefault()
 	try {
-		const response = await fetch("/php/updateCart.php", {
+		const data = await (await fetch("/php/updateCart.php", {
 			method: "POST",
 			headers: { 'Content-Type': "application/json" }
-		})
-		const data = await response.json()
-		if (data.code === 200) {
-			return data.count
-		} else {
-			console.error("update cart (php): ", data.error)
-		}
+		})).json()
+		return data.code === 200 ? data.count : console.error("update cart (php): ", data.error)
 	} catch (error) {
 		console.error("update cart: ", error)
 	}
