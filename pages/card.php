@@ -24,10 +24,10 @@ $productId = 1;
 	<main>
 		<div class="container">
 			<article class="image">
-				<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="name-of-the-product">
+				<a href="#start-detail"><img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" alt="name-of-the-product"></a>
 			</article>
 			<article class="desc-right">
-				<div class="product-detail">
+				<div class="product-detail" id='start-detail'>
 					<header>Название товара</header>
 					<span class="price">₽ 4500.00 RUB</span>
 					<span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, repellendus!</span>

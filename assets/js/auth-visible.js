@@ -9,14 +9,14 @@ if (document.querySelector('div.profile')) {
 		profileLinks.forEach(link => link.setAttribute('tabindex', String(allowed - 1)))
 	}
 
-	profileBtn.addEventListener('click', () => {
+	profileBtn.onclick = () => {
 		profileBtn.classList.toggle('active')
 		toggleAttributes(profileBtn.classList.contains('active'))
-	})
+	}
 
 	window.addEventListener('click', e => {
 		const isActive = profileBtn.classList.contains('active')
-		if (isActive && !e.target.classList.contains('profile-btn')) {
+		if (isActive && !e.target.classList.contains('profile-btn') && !e.target.classList.contains('svg-btn') && !e.target.classList.contains('path-btn')) {
 			profileBtn.classList.toggle('active')
 			toggleAttributes(isActive)
 		}

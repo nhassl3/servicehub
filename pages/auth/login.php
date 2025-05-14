@@ -3,6 +3,9 @@ session_start();
 if (empty($_SESSION['csrf_token'])) {
 	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
+
+$nonce = base64_encode(string: random_bytes(16));
+header("Content-Security-Policy: default-src 'self'; script-src 'self' notifications.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;");
 ?>
 
 <!DOCTYPE html>
@@ -11,10 +14,10 @@ if (empty($_SESSION['csrf_token'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
 	<title>ServiceHub | Логин</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="/assets/css/style-form.css">
+	<link rel="stylesheet" href="/assets/css/style-notification.css">
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
 </head>
 
@@ -26,7 +29,7 @@ if (empty($_SESSION['csrf_token'])) {
 			<header>
 				<h2 class='h-2'>авторизация</h2>
 			</header>
-			<form style="width: 538px;" method="post">
+			<form style="width: 538px;" method="post" action='javascript:void(0);'>
 				<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
 				<section>
@@ -37,15 +40,17 @@ if (empty($_SESSION['csrf_token'])) {
 					<label for="password" class="lbl-int">пароль</label>
 					<input type="password" id="password" class="ipt-data" placeholder="Введите пароль" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_]).{8,12}$" require />
 				</section>
-				<button type='submit' class="btn-submit" id='log-in'>вход</button>
+				<button data-alert='0' class="btn-submit" id='log-in'>вход</button>
 			</form>
 			<section class='centralize'>
 				<div class='account-actions'><a class='without-decor' href="/pages/auth/register.php">Зарегистрироваться</a></div>
 			</section>
 		</article>
+		<div class="notifications"></div>
 	</main>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.html" ?>
+	<script src="/assets/js/notifications.js"></script>
 	<script src="/assets/js/login.js"></script>
 </body>
 

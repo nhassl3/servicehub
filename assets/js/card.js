@@ -34,7 +34,7 @@ addButton.addEventListener('click', async (e) => {
 				const data = await response.json()
 
 				if (data.status) {
-					addNotification(addButton)
+					addNotification(addButton, "Товар успешно добавлен в корзину")
 					updateCountsInCart(e)
 				} else {
 					alert("Не удалось добавить продукт в корзину!")

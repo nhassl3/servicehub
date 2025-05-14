@@ -17,9 +17,10 @@ if (!$_SESSION['isLoggedIn']) {
 } else {
 ?>
 	<div class="profile">
-		<button class="profile-btn" aria-expanded='false' aria-controls="list">Профиль
-			<svg height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg">
-				<path d="M14 20l10 10 10-10z" fill='currentColor' />
+		<button class="profile-btn" aria-expanded='false' aria-controls="list">
+			Профиль (<?= $_SESSION['username'] ?>)
+			<svg class='svg-btn' height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg">
+				<path class='path-btn' d="M14 20l10 10 10-10z" fill='currentColor' />
 			</svg>
 		</button>
 

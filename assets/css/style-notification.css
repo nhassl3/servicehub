@@ -13,6 +13,7 @@
 	bottom: 0;
 	left: 50%;
 	width: 100%;
+	z-index: 1;
 	max-width: 470px;
 	transform: translateX(-50%);
 }
@@ -23,7 +24,7 @@
 	border-radius: 10px;
 	color: #898c97;
 	width: 100%;
-	animation: fadeOut .4s ease-out 2.5s;
+	animation: fadeOut .4s ease-out 3s;
 }
 
 .notification, .notification>div {

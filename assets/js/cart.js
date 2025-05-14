@@ -43,7 +43,7 @@ function openModal(contentType, dataId = null) {
 									})
 							}
 							closeModal()
-							addNotification(button)
+							addNotification(button, "Продукт успешно удалён из корзины")
 							updateCountsInCart(e)
 						}
 					} catch (error) {

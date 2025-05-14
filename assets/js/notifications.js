@@ -18,14 +18,14 @@ message.classList.add('info')
 success.classList.add('success')
 danger.classList.add('danger')
 
-message.innerHTML = `
+const messageGenerate = text => message.innerHTML = `
 	<div>
 		<span class='material-symbols-outlined icon'>
 			chat_bubble
 		</span>
 		<div>
-			<h3>John Doe</h3>
-			<p>Great, thanks a lot for the quick reply!</p>
+			<h3>Уважаемый пользователь</h3>
+			<p>${text}</p>
 		</div>
 		<span class='material-symbols-outlined close-btn'>
 			close
@@ -33,30 +33,29 @@ message.innerHTML = `
 	</div>
 `
 
-
-success.innerHTML = `
+const successGenerate = text => success.innerHTML = `
+<div>
+	<span class='material-symbols-outlined icon'>
+		done
+	</span>
 	<div>
-		<span class='material-symbols-outlined icon'>
-			done
-		</span>
-		<div>
-			<h3>Изменения сохранены!</h3>
-			<p>Вы успешно сохранили товар в корзине</p>
-		</div>
-		<span class='material-symbols-outlined close-btn'>
-			close
-		</span>
+		<h3>Изменения сохранены!</h3>
+		<p>${text}</p>
 	</div>
+	<span class='material-symbols-outlined close-btn'>
+		close
+	</span>
+</div>
 `
 
-danger.innerHTML = `
+const dangerGenerate = text => danger.innerHTML = `
 	<div>
 		<span class='material-symbols-outlined icon'>
 			delete
 		</span>
 		<div>
-			<h3>Изменения сохранены!</h3>
-			<p>Вы успешно сохранили товар в корзине</p>
+			<h3>Внимание!</h3>
+			<p>${text}</p>
 		</div>
 		<span class='material-symbols-outlined close-btn'>
 			close
@@ -64,8 +63,21 @@ danger.innerHTML = `
 	</div>
 `
 
-function addNotification(element) {
+function generateAlert(alert, text) {
+	if (alert === '0') {
+		messageGenerate(text)
+	} else if (alert === '1') {
+		successGenerate(text)
+	} else if (alert === '2') {
+		dangerGenerate(text)
+	} else {
+		console.error("got alert not valid")
+	}
+}
+
+function addNotification(element, text) {
 	const id = element.dataset.alert
+	generateAlert(id, text)
 	const n = notifications[id].cloneNode(true)
 	output.appendChild(n)
 	output.style.display = 'flex'
