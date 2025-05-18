@@ -1,0 +1,54 @@
+.numeric-input {
+	width: 48px;
+	background-color: #f5f7fa;
+	border: 2px solid #b3bcc5;
+	border-radius: 6px;
+	box-sizing: border-box;
+	color: #001a34;
+	display: flex;
+	overflow: hidden;
+	position: relative;
+	text-overflow: ellipsis;
+	transition: border-color .2s cubic-bezier(.25, .8, .25, 1);
+	white-space: nowrap;
+	will-change: transform, border-color, top, background-color;
+}
+
+.set-numeric {
+	display: flex;
+	flex: 1;
+	max-width: 100%;
+	position: relative;
+}
+
+.count-of-good {
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: center;
+	width: 100%;
+	vertical-align: top;
+	outline: none;
+	margin: 0;
+	color: inherit;
+	caret-color: #005bff;
+	box-sizing: border-box;
+	border: 0;
+	-webkit-text-fill-color: #001a34;
+	background-color: hsla(0, 0%, 100%, 0);
+	font-style: normal;
+	letter-spacing: normal;
+	text-decoration: none;
+	text-transform: none;
+	word-spacing: normal;
+	-moz-appearance: textfield;
+	/* Firefox */
+}
+
+/* Remove arrows up and down for numeric type of input tag */
+/* Chrome, Safari, Edge, Opera */
+.count-of-good::-webkit-outer-spin-button,
+.count-of-good::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

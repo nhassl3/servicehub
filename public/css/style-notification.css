@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
+
+
+.notifications {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1em;
+	margin: 2em 2em 0;
+	padding-bottom: 2em;
+	position: sticky;
+	bottom: 0;
+	left: 50%;
+	width: 100%;
+	z-index: 1;
+	max-width: 470px;
+	transform: translateX(-50%);
+}
+
+.notification {
+	background: linear-gradient(90deg, #02244b 0%, #232631 40%);
+	padding: 1em;
+	border-radius: 10px;
+	color: #898c97;
+	width: 100%;
+	animation: fadeOut .4s ease-out 3s;
+}
+
+.notification, .notification>div {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	gap: 1em;
+	width: 100%;
+}
+
+.notification span {
+	font-size: 1.7em;
+}
+
+.close-btn {
+	cursor: pointer;
+}
+
+.notification h3 {
+	color: #fff;
+	margin-bottom: .2em;
+}
+
+.icon {
+	width: 1.5em;
+	height: 1.5em;
+	color: #218afa;
+	background: #042c5c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+}
+
+.success {
+	background: linear-gradient(90deg, #084431 0%, #232631 40%);
+}
+
+.success .icon {
+	color: #26f2b1;
+	background: #0a4f3a;
+}
+
+.danger {
+	background: linear-gradient(90deg, #480607 0%, #232631 40%);
+}
+
+.danger .icon {
+	color: #ff5c5a;
+	background: #590e0c;
+}
+
+@keyframes fadeOut {
+	100% {
+		opacity: 0%;
+	}
+}

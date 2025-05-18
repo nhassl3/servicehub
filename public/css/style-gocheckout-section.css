@@ -1,0 +1,172 @@
+/* Buy process */
+
+.right-section-buy {
+	margin-left: 3em;
+	height: 100%;
+	width: 130%;
+	float: right;
+	position: sticky;
+	top: 25px;
+}
+
+.enabled {
+	border-radius: 10px;
+	height: 100%;
+	background-color: #f5f7fa;
+	padding: 32px 32px;
+	margin-bottom: 2px;
+}
+
+.enabled-order-box .enabled {
+	border-radius: 0;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: none;
+	border-bottom-right-radius: none;
+}
+
+.right-section-buy .enabled-order-box {
+	display: none;
+}
+
+.right-section-buy .disabled-order-box {
+	display: block;
+}
+
+.info-about-order {
+	background-color: #f5f7fa;
+	border-top-right-radius: none;
+	border-top-left-radius: none;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	height: 100%;
+	padding: 16px 32px;
+}
+
+.registration-btn {
+	display: flex;
+	border: 0;
+	font-size: 14pt;
+	font-weight: 550;
+	height: 56px;
+	color: #fff;
+	background-color: #000;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	padding: 12px 16px;
+	position: relative;
+	width: 100%;
+	transition: all .4s ease, transform .1s cubic-bezier(.55, 0, 1, .45);
+}
+
+.registration-btn:hover:not(:disabled) {
+	background-color: #fff;
+	color: #000;
+}
+
+.registration-btn:active:not(:disabled) {
+	transform: scale(0.95);
+}
+
+.registration-btn:disabled {
+	background-color: rgba(0, 50, 58, .04);
+	color: #84888b
+}
+
+.large-text {
+	background-color: rgba(0, 50, 57, .1);
+	border-radius: 8px;
+	margin-top: 1.5em;
+}
+
+.annotation {
+	width: 100%;
+	box-sizing: border-box;
+	color: #3d5165;
+	border-radius: 16px;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 16px 24px 16px 16px;
+	position: relative;
+}
+
+.d394-a1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.d394-a3 {
+	margin-right: 8px;
+	width: fit-content;
+}
+
+.info-about-order {
+	border-top-right-radius: none;
+	border-top-left-radius: none;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.order-box {
+	display: flex;
+}
+
+.order-box:not(:last-child) {
+	margin-bottom: 17px;
+}
+
+.order-box:last-child {
+	margin-top: 17px
+}
+
+.left-section-order-box:not(:last-child) {
+	flex: 1;
+	margin-right: 30px;
+}
+
+.order-count-goods {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #444;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.goto-more-details {
+	color: #005bff;
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.count-price-reg {
+	display: flex;
+	font-weight: 500;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	justify-content: center;
+	align-items: center;
+}
+
+.price-discount {
+	color: red;
+}
+
+@media (max-width: 1024px) {
+	.right-section-buy {
+		width: 100%;
+		margin: 30px 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.enabled .info-about-order {
+		padding: 16px;
+	}
+}

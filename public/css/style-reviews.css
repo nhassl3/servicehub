@@ -1,0 +1,22 @@
+main {
+	margin: 0;
+	padding: 0;
+	min-width: 100%;
+}
+
+.cards {
+	flex-direction: row;
+}
+
+.cards img {
+	flex: 1;
+}
+
+.big-less-weight {
+	font-size: 24pt;
+	text-align: center;
+}
+
+.card div {
+	max-width: fit-content;
+}

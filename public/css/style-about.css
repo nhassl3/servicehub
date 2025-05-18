@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+    padding: 10em;
+}
+
+.first-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+.second-about {
+    display: block;
+    padding-bottom: 3em;
+}
+
+.area {
+    max-width: 600px;
+    text-align: justify;
+}
+
+.left-space-section {
+    float: left;
+    width: 45%;
+}
+
+.right-space-section {
+    float: right;
+    width: 45%;
+    margin-left: -.3em;
+}
+
+ul {
+    list-style: none;
+}
+
+/* On tablet */
+@media (max-width: 1024px) {
+    .area {
+        max-width: 500px;
+    }
+
+    .left-space-section, .right-space-section {
+        width: 48%;
+    }
+
+    .right-space-section {
+        margin-left: -2em;
+    }
+}
+
+@media (max-width: 780px) {
+    .area {
+        max-width: 100%;
+        float: none;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0.5em 0;
+    }
+
+    .left-space-section, .right-space-section {
+        float: none;
+        width: 100%;
+    }
+
+    .right-space-section {
+        margin-top: 2em;
+    }
+}
+
+/* On phone */
+@media (max-width: 480px) {
+    .left-space-section, .right-space-section {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 870px) {
+    footer {
+        display: block;
+    }
+}
+
+@media (max-width: 546px) {
+    .first-about section header h2 {
+        width: 230px;
+    }
+
+    main {
+        padding: 3em;
+    }
+
+    .left-space-section, .right-space-section {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .first-about section header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

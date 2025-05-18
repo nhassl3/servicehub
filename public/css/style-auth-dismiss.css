@@ -1,0 +1,83 @@
+main {
+  height: 100%;
+  padding: 3em 10em 4.3em;
+}
+
+main article header h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+main article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+form {
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+section label {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+  main {
+    padding: 2em 5em 3em;
+  }
+
+  form {
+    width: 450px;
+  }
+}
+
+/* Адаптация для больших мобильных (576px - 768px) */
+@media (max-width: 768px) {
+  main {
+    padding: 2em 3em;
+  }
+
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding-top: 2em;
+  }
+
+  main article header h2 {
+    font-size: 2.5em !important;
+    letter-spacing: 2px;
+  }
+}
+
+/* Адаптация для мобильных (до 576px) */
+@media (max-width: 576px) {
+  main {
+    padding: 1.5em 1em;
+  }
+
+  form {
+    padding-top: 1.5em;
+    max-width: 100%;
+  }
+
+  section {
+    padding-bottom: 20px;
+  }
+
+  main article header h2 {
+    font-size: 1.9em !important;
+    letter-spacing: 1px;
+  }
+}

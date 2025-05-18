@@ -1,0 +1,711 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+header#nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 50px;
+	background-color: white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo a h1 {
+	font-size: 32pt;
+	font-weight: bold;
+	cursor: default;
+}
+
+.navigator-links {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+.main-links ul, .auth-links ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.main-links ul li, .auth-links ul li {
+	margin: 0 15px;
+}
+
+.nav-link {
+	display: flex;
+	text-decoration: none;
+	font-size: 16px;
+	color: #333;
+	font-weight: 500;
+	position: relative;
+	transition: color .4s;
+}
+
+.main-links .nav-link::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -3px;
+	width: 0;
+	height: 2px;
+	background-color: #333;
+	transition: width .4s, left .4s;
+}
+
+.above-link {
+	font-size: 9pt;
+	position: relative;
+	bottom: 7px;
+	color: #ccc;
+}
+
+.main-links .nav-link:hover {
+	color: #ddd;
+}
+
+.main-links .nav-link:hover::after {
+	width: 100%;
+	left: 0;
+}
+
+.auth-links {
+	margin-left: auto;
+}
+
+.auth-links .nav-link {
+	padding: 8px 15px;
+	border-radius: 5px;
+	border: 1px solid #333;
+	background-color: #000;
+	color: #fff;
+	transition: all .4s;
+}
+
+.auth-links .nav-link:hover {
+	background-color: #fff;
+	color: #333;
+}
+
+/* Profile styles */
+
+.profile {
+	position: relative;
+}
+
+.profile-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	inline-size: 100%;
+	padding: 0.2lh 1.5lh;
+	font: inherit;
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #333;
+	cursor: pointer;
+	transition: all .4s ease;
+}
+
+.profile-btn:hover,
+.profile-btn:focus-visible {
+	background-color: #fff;
+	color: #000;
+	border: 1px solid #333;
+}
+
+.profile-list {
+	right: 0;
+	width: 100%;
+	min-width: 150px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	position: absolute;
+	z-index: 1;
+	border-radius: 10px;
+	margin-block-start: .5lh;
+	background-color: #f2f5ff;
+
+	/* Изменения для мобильной анимации */
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 0.5s ease, opacity 0.3s ease;
+	overflow: hidden;
+}
+
+.profile-item {
+	overflow: hidden;
+	list-style-type: none;
+}
+
+.profile-item:last-child {
+	color: #c70225;
+}
+
+.profile-link {
+	display: flex;
+	width: fit-content;
+	text-decoration: none;
+	color: inherit;
+	font: inherit;
+	padding: .5lh 0;
+	transition: transform .4s ease-out;
+	margin-left: 15px;
+}
+
+.profile-link:hover,
+.profile-link:focus-visible {
+	transform: scale(1.05);
+}
+
+.profile-btn.active~.profile-list {
+	max-height: 500px;
+	/* Достаточно большое значение для всех пунктов */
+	opacity: 1;
+}
+
+/* MAIN for index.php */
+
+main {
+	padding: 1.3em;
+	height: 100%;
+}
+
+.description {
+	display: block;
+	width: 75%;
+	margin: 10em 0 25em 10em;
+}
+
+.big-less-weight {
+	font-weight: 300;
+	font-size: 32pt;
+}
+
+.w-50-line {
+	border: none;
+	height: 1px;
+	margin: 6.5em 0;
+	background-color: #ccc;
+}
+
+.area {
+	max-width: 600px;
+	text-align: justify;
+	color: #666;
+}
+
+.left-section {
+	float: left;
+	width: 45%;
+}
+
+.right-section {
+	float: right;
+	margin-left: -3em;
+	width: 45%;
+}
+
+/* Контейнер для карточек */
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 30px;
+	padding: 20px;
+}
+
+/* Заголовок секции */
+.recommend-goods {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/* Заголовок "Рекомендуемые товары" */
+#recommend-goods {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* Линия-разделитель */
+.line-break {
+	width: 50%;
+	height: 2px;
+	background-color: gray;
+	margin: 10px auto;
+}
+
+.roboto-text {
+	font-family: "Roboto", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.btn-submit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 2px;
+	font-size: 16pt;
+	font-weight: 350;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	height: 32px;
+	border: 1px solid #333;
+	margin-top: 30px;
+	color: #fff;
+	background-color: #000;
+	transition: all .4s ease;
+}
+
+.btn-submit:hover {
+	background-color: #fff;
+	color: #333;
+}
+
+.ipt-data {
+	border-radius: 2px;
+	text-indent: 20px;
+	font-size: 11pt;
+	font-weight: 350;
+	height: 32px;
+	border: none;
+	outline: 2px solid transparent;
+	background-image:
+		linear-gradient(to bottom, #cacaca 1px, transparent 1px),
+		linear-gradient(to bottom, #cacaca 1px, transparent 1px),
+		linear-gradient(to right, #cacaca 1px, transparent 1px, transparent calc(100% - 1px), #cacaca calc(100% - 1px)),
+		linear-gradient(to top, #cacaca 1px, transparent 1px);
+	background-position: -100% 0%, 200% 0%, 0% 100%, 0% 100%;
+	background-size: 50% 100%, 50% 100%, 100% 1px, 100% 100%;
+	background-repeat: no-repeat;
+	transition: background-size .4s ease-out .6s, background-position .6s ease-in;
+}
+
+.ipt-data:focus {
+	background-position: 0% 0%, 100% 0%, 0% 100%, 0% 100%;
+	background-size: 51% 100%, 51% 100%, 100% 100%, 100% 100%;
+	transition: background-size .4s ease-in, background-position .6s ease-out .4s;
+}
+
+.lbl-int {
+	padding-left: 3px;
+	text-transform: uppercase;
+}
+
+/* Описание под заголовком */
+.faded-text {
+	color: gray;
+	font-size: 14px;
+}
+
+/* Карточки товаров */
+.card {
+	background-color: #000;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	max-width: 300px;
+	width: calc(33.33% - 10px);
+	/* 3 карточки в ряд с отступами */
+	height: 500px;
+	/* Фиксированная высота */
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+	transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.card:hover {
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .6);
+	transform: translateY(-5px);
+	/* Лёгкий подъём карточки */
+}
+
+/* Изображения товаров */
+.img-card {
+	height: 100% !important;
+	/* Ограничение высоты */
+	align-items: center;
+	object-fit: contain;
+}
+
+.left-corner-desc {
+	display: inline-block;
+	width: fit-content;
+	height: 15%;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: left;
+}
+
+/* Название товара */
+.bright-text {
+	font-size: 20px;
+	font-weight: 625;
+	margin: 15px 0;
+	text-transform: uppercase;
+}
+
+/* Цена товара */
+.card .faded-text {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.line-break {
+	width: 100%;
+	background: none;
+}
+
+footer {
+	display: flex;
+	background-color: #fff;
+	padding: 2rem;
+	box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer header {
+	margin-bottom: 2rem;
+	width: 20%;
+	align-items: center;
+}
+
+footer header div a h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	cursor: default;
+}
+
+.faded-text {
+	color: #888;
+	font-size: 0.9rem;
+	width: fit-content;
+}
+
+.footer-links {
+	display: flex;
+	width: 80%;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.category-footer-link {
+	flex: 1;
+	min-width: 150px;
+}
+
+.category-footer-link header h3 {
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	color: #333;
+}
+
+.ul-block-footer {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ul-block-footer li {
+	margin-bottom: 0.8rem;
+}
+
+.footer-link {
+	text-decoration: none;
+	color: #555;
+	font-size: 0.9rem;
+	transition: color 0.2s;
+}
+
+.footer-link:hover {
+	color: #000;
+}
+
+.h-2 {
+	font-size: 46pt;
+	margin-bottom: .35em;
+	font-weight: 515;
+}
+
+/* General */
+.link {
+	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
+	overflow: hidden;
+}
+
+.link.cur-d {
+	cursor: default;
+}
+
+/* On tablet */
+@media (max-width: 1024px) {
+	header#nav {
+		padding: 15px 30px;
+	}
+
+	.logo h1 {
+		font-size: 28pt;
+	}
+
+	.navigator-links {
+		gap: 20px;
+	}
+
+	.main-links ul li, .auth-links ul li {
+		margin: 0 10px;
+	}
+
+	.nav-link {
+		font-size: 14px;
+	}
+
+	.auth-links .nav-link {
+		padding: 6px 12px;
+	}
+
+	.description {
+		width: 85%;
+		margin: 8em 0 20em 5em;
+	}
+
+	.big-less-weight {
+		font-size: 28pt;
+	}
+
+	.w-50-line {
+		margin: 5em 0;
+	}
+
+	.area {
+		max-width: 500px;
+	}
+
+	.left-section, .right-section {
+		width: 48%;
+	}
+
+	.right-section {
+		margin-left: -2em;
+	}
+
+	.card {
+		width: calc(100% - 30px);
+	}
+}
+
+@media (max-width: 780px) {
+	* {
+		box-sizing: border-box;
+	}
+
+	header#nav {
+		padding: 10px 20px;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.logo h1 {
+		font-size: 24pt;
+		margin-bottom: 10px;
+	}
+
+	.navigator-links {
+		width: 100%;
+		flex-direction: column;
+		gap: 15px;
+		align-items: flex-start;
+		padding: 0;
+		margin: 0;
+	}
+
+	.main-links ul, .auth-links ul {
+		flex-direction: column;
+		width: 100%;
+		padding: 0;
+	}
+
+	.main-links ul li, .auth-links ul li {
+		margin: 5px 0;
+		width: 100%;
+	}
+
+	.auth-links {
+		margin-left: 0;
+		margin-top: 10px;
+		width: 100%;
+	}
+
+	.nav-link {
+		display: inline-flex;
+		padding: 8px 0;
+	}
+
+	.auth-links .nav-link {
+		display: inline-block;
+		padding: 6px 10px;
+	}
+
+	.main-links .nav-link::after {
+		display: none;
+	}
+
+	/* Profile */
+
+	.profile-list {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.profile-link {
+		padding: 1lh 0;
+		/* Увеличиваем отступы для удобства нажатия */
+		margin-left: 20px;
+	}
+
+	.profile-btn.active~.profile-list {
+		max-height: 300px;
+		/* Меньшее значение для мобильных */
+	}
+
+	/* MAIN in index.php */
+
+	.description {
+		width: 90%;
+		margin: 5em auto;
+		padding: 0 1em;
+		max-width: 100%;
+	}
+
+	.big-less-weight {
+		font-size: 24pt;
+		text-align: center;
+		padding: 0 10px;
+	}
+
+	.img-card {
+		max-width: 100%;
+	}
+
+	.w-50-line {
+		width: 80%;
+		margin: 3em auto;
+		max-width: 100%;
+	}
+
+	.area {
+		max-width: 100%;
+		float: none;
+		width: 100% !important;
+		margin: 0 !important;
+		padding: 0.5em 1em;
+	}
+
+	.left-section, .right-section {
+		float: none;
+		width: 100%;
+		padding: 0 1em;
+	}
+
+	.right-section {
+		margin-top: 2em;
+	}
+}
+
+/* On phone */
+@media (max-width: 480px) {
+	.logo h1 {
+		font-size: 20pt;
+	}
+
+	.nav-link {
+		font-size: 13px;
+	}
+
+	/* MAIN in index.php */
+
+	.description {
+		margin: 3em auto;
+		width: calc(100%-2em);
+	}
+
+	.big-less-weight {
+		font-size: 20pt;
+	}
+
+	.w-50-line {
+		width: calc(100%-2em);
+		margin: 2em auto;
+	}
+
+	.area p {
+		font-size: 14px;
+	}
+
+	.card {
+		width: 100%;
+		margin: 0 1em;
+	}
+
+	.left-section, .right-section {
+		float: none;
+		width: 100%;
+		text-align: center;
+		padding: 0 1em;
+	}
+}
+
+@media (max-width: 870px) {
+	footer {
+		display: block;
+	}
+}
+
+.centralize {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.without-decor {
+	text-decoration: none;
+}
+
+.color-inh {
+	color: inherit;
+	font: inherit;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
