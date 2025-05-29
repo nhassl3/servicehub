@@ -1,0 +1,124 @@
+main {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	max-width: 100%;
+	justify-content: center;
+	margin: 2em;
+}
+
+/* LEFT SIDE LIST */
+.left-side-list {
+	display: flex;
+	flex-direction: column;
+	background-color: #f3f3f3;
+	border-radius: 10px;
+	height: 55%;
+	padding: 1em;
+}
+
+.category {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.categories-left-side {
+	margin-top: 3em;
+}
+
+.link-to-category {
+	text-decoration: none;
+	color: #000;
+	transition: color .1s ease;
+}
+
+.link-to-category:hover {
+	color: #0000ee;
+}
+
+.exists-category {}
+
+.goods-and-lists {
+	display: flex;
+	justify-content: space-between;
+	gap: 9px;
+}
+
+.select-category-show-likes {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.active {
+	background-color: #ddd;
+	border-radius: 10px;
+	padding: .4em;
+}
+
+/* GOODS ARTICLE */
+
+.goods-list {
+	display: flex;
+	align-items: center;
+	margin: 0 3em 1em;
+	border-radius: 10px;
+	width: 33%;
+	height: 45%;
+	background-color: #f3f3f3;
+	padding: 1em;
+}
+
+.list {
+	height: 100%;
+	justify-self: flex-start;
+}
+
+.h-2 {
+	font-size: 32px;
+	align-items: flex-start;
+	margin-bottom: 2rem;
+}
+
+.h-4 {
+	font-size: 14px;
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+
+.in-panel-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ccc;
+	border-radius: 10px;
+	width: 45%;
+	height: 100%;
+}
+
+.buttons-panel {
+	display: flex;
+	margin-bottom: 1.5rem;
+	justify-content: space-between;
+	gap: 2em;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	background-color: #ddd;
+	border-radius: 10px;
+	width: 34%;
+	height: 5rem;
+	padding: 12px;
+	font-size: 14px;
+	justify-content: center;
+	align-items: center;
+	transition: transform .4s ease-out;
+}
+
+.buttons:hover {
+	transform: scale(1.05);
+}

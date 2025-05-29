@@ -18,103 +18,159 @@ function openModal(contentType, dataId = null) {
 
 		if (contentType === "delete" && dataId !== null) {
 			const button = contentElement.querySelector("button#delete-card")
-			button.onclick = async function (e) {
-				{
-					e.preventDefault()
-					try {
-						const response = await fetch("/pages/delete_product.php", {
-							method: "POST",
-							headers: { "Content-Type": "application/json" },
-							body: JSON.stringify(dataId),
-						})
-						const data = await response.json()
+			// Удаляем старые обработчики перед добавлением нового
+			button.replaceWith(button.cloneNode(true))
+			const newButton = contentElement.querySelector("button#delete-card")
 
-						if (data.success) {
-							toggleProductSelection(document.getElementById(`checkbox-${dataId}`), dataId)
-							document.querySelector(`#product-data-${dataId}`).remove()
-							selectedGoods = selectedGoods.filter(item => item.id !== dataId)
+			newButton.addEventListener('click', async function (e) {
+				e.preventDefault()
+				try {
+					const response = await (await fetch("/cart/delete", {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+							"X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+						},
+						body: JSON.stringify({ 'cart_item_id': dataId }),
+					})).json()
 
-							if (await countCart(e) === 0) {
-								const mainElement = document.querySelector('.container')
-								fetch('/pages/empty-cart.html')
-									.then(response => response.text())
-									.then(html => {
-										mainElement.innerHTML = html
-									})
+					if (response.status === 200) {
+						// Удаляем товар из selectedGoods если он там есть
+						selectedGoods = selectedGoods.filter(item => item.id !== dataId)
+
+						// Находим сам товар и следующий за ним разделитель (если есть)
+						const productElement = document.querySelector(`div.product-card[data-cart_item_id="${dataId}"]`)
+						if (productElement) {
+							const nextElement = productElement.nextElementSibling
+
+							// Если следующий элемент - разделитель, удаляем его
+							if (nextElement && nextElement.classList.contains('w50-line')) {
+								nextElement.remove()
 							}
-							closeModal()
-							addNotification(button, "Продукт успешно удалён из корзины")
-							updateCountsInCart(e)
+
+							// Удаляем сам товар
+							productElement.remove()
 						}
-					} catch (error) {
-						console.error("Error in deleting: ", error)
+
+
+						const count = await countCart(e)
+						if (count === 0) {
+							window.location.href = "/market"
+						} else {
+							addNotification(newButton.dataset.alert, response.message)
+						}
+						closeModal()
+						updateCountsInCart(e, count)
+						updateCartSummary(e)
 					}
+				} catch (error) {
+					console.error("Error in deleting: ", error)
 				}
-			}
+			})
 		}
 	}
 
 	// Открываем модальное окно
 	modal.style.display = 'flex'
-	document.body.style.overflow = 'hidden' // Блокируем прокрутку страницы
+	document.body.style.overflow = 'hidden'
 }
 
 let selectedGoods = []
 
-function toggleProductSelection(checkbox, productId) {
-	const product = goodsData[productId]
-
+async function toggleProductSelection(e, checkbox, productId) {
+	e.preventDefault()
 	if (checkbox.checked) {
-		selectedGoods.push(product)
+		const product = goodsData[productId]
+		if (!selectedGoods.some(item => item.id === productId)) {
+			product['id'] = productId
+			selectedGoods.push(product)
+		}
 	} else {
-		selectedGoods = selectedGoods.filter(item => item.name !== product.name)
+		selectedGoods = selectedGoods.filter(item => item.id !== productId)
 	}
-
-	updateCartSummary()
+	updateCartSummary(e)
 }
 
-function toggleLike(button, id) {
+async function toggleLike(e, cartItemId, isLike) {
+	e.preventDefault()
 	try {
-		button.classList.toggle('clicked')
-		fetch("/pages/like.php", {
+		const response = await (await fetch("/cart/likeProduct", {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(id)
-		})
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-TOKEN': document.querySelector("meta[name='csrf-token']").getAttribute('content')
+			},
+			body: JSON.stringify({ "cart_item_id": cartItemId, 'is_like': isLike })
+		})).json()
+
+		if (response.status === 200) {
+			return
+		} else {
+			console.warn(response.error)
+		}
 	} catch (error) {
 		console.error("Error in toggle like: ", error)
 	}
 }
 
-function updateCartSummary() {
+const isLikeBtn = document.querySelector('button.like')
+if (isLikeBtn) {
+	isLikeBtn.addEventListener('click', async e => {
+		e.preventDefault()
+		isLikeBtn.classList.toggle('clicked')
+		toggleLike(e, +isLikeBtn.dataset.cart_item_id, isLikeBtn.classList.contains('clicked'))
+	})
+}
+
+async function updateCartSummary(e) {
+	e.preventDefault()
 	const enabledSection = document.querySelector('section.enabled-order-box')
 	const disabledSection = document.querySelector('section.disabled-order-box')
+
+	if (!enabledSection || !disabledSection) return
 
 	if (selectedGoods.length > 0) {
 		enabledSection.style.display = 'block'
 		disabledSection.style.display = 'none'
 
-		var amountX = id => document.querySelector(`input#input-numeric-${id}`).value
-		const totalPrice = selectedGoods.reduce((sum, product) => sum + product.price * amountX(product.id), 0)
-		const totalDiscountPrice = selectedGoods.reduce((sum, product) => sum + product.discount_price * amountX(product.id), 0)
+		const amountX = id => {
+			const input = document.querySelector(`input.count-of-good[data-cart_item_id="${id}"]`)
+			return input ? parseInt(input.value) || 0 : 0
+		}
+
+		const totalPrice = selectedGoods.reduce((sum, product) => sum + (product.price * amountX(product.id)), 0)
+		const totalDiscountPrice = selectedGoods.reduce((sum, product) => sum + (product.discount_price * amountX(product.id)), 0)
 		const totalWeight = selectedGoods.reduce((sum, product) => {
 			const weight = product.unity_weight === "KB" ? product.weight / 1024 : product.weight
-			return sum + weight
+			return sum + (weight * amountX(product.id))
 		}, 0)
 
-		const countOfGoods = selectedGoods.length
-		document.querySelector("span#count-selected-goods").textContent = `Товары (${countOfGoods})`
-		document.querySelector(".order-count-goods").textContent = `${countOfGoods} товара • ${totalWeight.toFixed(1)} MB`
-		document.querySelector(".count-price-reg.price-without").textContent = `${totalPrice.toLocaleString()} ₽`
-		document.querySelector(".count-price-reg.price-discount").textContent = `− ${(totalPrice - totalDiscountPrice).toLocaleString()} ₽`
-		document.querySelector("span#total").textContent = `${totalDiscountPrice.toLocaleString()} ₽`
-		document.querySelector("span#total-modal").textContent = `${totalDiscountPrice.toLocaleString()}`
-		document.querySelector("span#discount-modal").textContent = `${(totalPrice - totalDiscountPrice).toLocaleString()}`
-	} else {
-		if (enabledSection && disabledSection) {
-			enabledSection.style.display = 'none'
-			disabledSection.style.display = 'block'
+		const countOfGoods = selectedGoods.reduce((sum, product) => sum + amountX(product.id), 0)
+
+		if (document.querySelector("span#count-selected-goods")) {
+			document.querySelector("span#count-selected-goods").textContent = `Товары (${countOfGoods})`
 		}
+		if (document.querySelector(".order-count-goods")) {
+			document.querySelector(".order-count-goods").textContent = `${countOfGoods} товара • ${totalWeight.toFixed(1)} MB`
+		}
+		if (document.querySelector(".count-price-reg.price-without")) {
+			document.querySelector(".count-price-reg.price-without").textContent = `${totalPrice.toLocaleString()} ₽`
+		}
+		if (document.querySelector(".count-price-reg.price-discount")) {
+			document.querySelector(".count-price-reg.price-discount").textContent = `− ${(totalPrice - totalDiscountPrice).toLocaleString()} ₽`
+		}
+		if (document.querySelector("span#total")) {
+			document.querySelector("span#total").textContent = `${totalDiscountPrice.toLocaleString()} ₽`
+		}
+		if (document.querySelector("span#total-modal")) {
+			document.querySelector("span#total-modal").textContent = `${totalDiscountPrice.toLocaleString()}`
+		}
+		if (document.querySelector("span#discount-modal")) {
+			document.querySelector("span#discount-modal").textContent = `${(totalPrice - totalDiscountPrice).toLocaleString()}`
+		}
+	} else {
+		enabledSection.style.display = 'none'
+		disabledSection.style.display = 'block'
 	}
 }
 
@@ -138,17 +194,20 @@ document.addEventListener("keydown", event => {
 	}
 })
 
-function updateButtons(countInput, minusBtn, plusBtn) {
+async function updateButtons(e, countInput, minusBtn, plusBtn) {
+	e.preventDefault()
 	const value = parseInt(countInput.value)
 	const min = parseInt(countInput.min)
 	const max = parseInt(countInput.max)
 
 	minusBtn.disabled = value <= min
 	plusBtn.disabled = value >= max
-	updateCartSummary()
+	await updateCartSummary(e)
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function (e) {
+	e.preventDefault()
+
 	// Находим все карточки товаров
 	const productCards = document.querySelectorAll('.product-card')
 	const sectionCards = document.querySelectorAll("section.card")
@@ -156,18 +215,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Для каждой секции делаем обработчик
 	sectionCards.forEach(card => {
-		card.addEventListener('click', function (event) {
-			// Если клик был по самому чекбоксу или его label, не обрабатываем
-			if (event.target.tagName === 'INPUT' ||
-				event.target.closest('label.custom-checkbox') ||
-				event.target.closest('input[type="checkbox"]')) {
+		card.addEventListener('click', async e => {
+			e.preventDefault()
+			// Если клик был по самому checkbox или его label, не обрабатываем
+			if (e.target.tagName === 'INPUT' ||
+				e.target.closest('label.custom-checkbox') ||
+				e.target.closest('input[type="checkbox"]')) {
 				return
 			}
 
-			const checkbox = this.querySelector('input[type="checkbox"]:not(#selectAll)')
+			const checkbox = card.querySelector('input[type="checkbox"]:not(#selectAll)')
 			if (checkbox) {
 				checkbox.checked = !checkbox.checked
-				// Триггерим событие change, чтобы вызвать toggleProductSelection
+				// Trigger событие change, чтобы вызвать toggleProductSelection
 				const changeEvent = new Event('change')
 				checkbox.dispatchEvent(changeEvent)
 			}
@@ -176,17 +236,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Для каждого изменения checkbox
 	checkboxes.forEach(checkbox => {
-		checkbox.addEventListener("change", function () {
-			toggleProductSelection(checkbox, checkbox.id.split("-")[1])
+		checkbox.addEventListener("change", async e => {
+			e.preventDefault()
+			toggleProductSelection(e, checkbox, +checkbox.dataset.checkbox_id)
 		})
 	})
 
 	// Обработчик для "Выбрать все"
 	const selectAll = document.getElementById('selectAll')
 	if (selectAll) {
-		selectAll.addEventListener('change', function () {
+		selectAll.addEventListener('change', async e => {
+			e.preventDefault()
+
 			const checkboxes = document.querySelectorAll('input[checkbox-id="checkbox-element"]:not(#selectAll)')
-			const isChecked = this.checked
+			const isChecked = selectAll.checked
 
 			// Очищаем массив перед добавлением новых элементов
 			selectedGoods = isChecked ? [] : selectedGoods
@@ -194,66 +257,117 @@ document.addEventListener('DOMContentLoaded', function () {
 			checkboxes.forEach(checkBox => {
 				checkBox.checked = isChecked
 				if (isChecked) {
-					const productId = checkBox.id.split("-")[1]
-					toggleProductSelection(checkBox, productId)
+					toggleProductSelection(e, checkBox, +checkBox.dataset.checkbox_id)
 				}
 			})
 
 			// Если снимаем выбор всех, очищаем массив
 			if (!isChecked) {
 				selectedGoods = []
-				updateCartSummary()
+				updateCartSummary(e)
 			}
 		})
-
 	}
 
 	// Для каждой карточки добавляем обработчики событий
-	productCards.forEach(card => {
+	productCards.forEach(async card => {
 		const minusBtn = card.querySelector('.minus-btn')
 		const plusBtn = card.querySelector('.plus-btn')
 		const countInput = card.querySelector('.count-of-good')
+		const debounceTimers = {}
 
 		// Обработчик для кнопки минус
-		minusBtn.addEventListener('click', function () {
+		minusBtn.addEventListener('click', async e => {
+			e.preventDefault()
 			let value = parseInt(countInput.value)
 			let min = parseInt(countInput.min)
 			if (!isNaN(value) && value >= min) {
 				countInput.value = value - 1
-				updateButtons(countInput, minusBtn, plusBtn)
+				const inputEvent = new Event('input', {
+					bubbles: true
+				})
+				countInput.dispatchEvent(inputEvent)
 			}
 		})
 
 		// Обработчик для кнопки плюс
-		plusBtn.addEventListener('click', function () {
+		plusBtn.addEventListener('click', async e => {
+			e.preventDefault()
 			let value = parseInt(countInput.value)
 			let max = parseInt(countInput.max)
 			if (!isNaN(value) && value <= max) {
 				countInput.value = value + 1
-				updateButtons(countInput, minusBtn, plusBtn)
+				const inputEvent = new Event('input', {
+					bubbles: true
+				})
+				countInput.dispatchEvent(inputEvent)
 			}
 		})
 
 		// Обработчик для прямого ввода в поле
-		countInput.addEventListener('input', updateButtons(countInput, minusBtn, plusBtn))
-		countInput.addEventListener('change', function () {
-			const value = parseInt(this.value)
-			const min = parseInt(this.min)
-			const max = parseInt(this.max)
+		countInput.addEventListener('input', async e => {
+			if (!countInput.classList.contains('count-of-good')) return
 
-			if (isNaN(value)) {
-				this.value = min || 0
-			} else if (value < min) {
-				this.value = min
-			} else if (value > max) {
-				this.value = max
-			}
+			e.preventDefault()
+			const cartItemId = +countInput.dataset.cart_item_id
 
-			updateButtons(countInput, minusBtn, plusBtn)
+			updateButtons(e, countInput, minusBtn, plusBtn)
+
+			clearTimeout(debounceTimers[cartItemId])
+
+			debounceTimers[cartItemId] = setTimeout(() => {
+				updateQuantityRequest(e, +countInput.value, cartItemId)
+			}, 1000)
 		})
 
-		updateButtons(countInput, minusBtn, plusBtn)
-	})
+		countInput.addEventListener('change', async e => {
+			e.preventDefault()
+			const value = parseInt(countInput.value)
+			const min = parseInt(countInput.min)
+			const max = parseInt(countInput.max)
 
-	updateCartSummary()
+			if (isNaN(value)) {
+				countInput.value = min || 0
+			} else if (value < min) {
+				countInput.value = min
+			} else if (value > max) {
+				countInput.value = max
+			}
+
+			updateButtons(e, countInput, minusBtn, plusBtn)
+		})
+		updateButtons(e, countInput, minusBtn, plusBtn)
+	})
+	updateCartSummary(e)
 })
+async function handleQuantityChange(e, quantity, cartItemId) {
+	clearTimeout(debounceTimer)
+
+	debounceTimer = setTimeout(() => {
+		updateQuantityRequest(e, quantity, cartItemId)
+	}, 1000)
+}
+
+async function updateQuantityRequest(e, quantity, cartItemId) {
+	e.preventDefault()
+	try {
+		const response = await (await fetch('/cart/updateQuantity', {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-TOKEN': document.querySelector("meta[name='csrf-token']").getAttribute('content')
+			},
+			body: JSON.stringify({
+				'cart_item_id': cartItemId,
+				'quantity': quantity
+			}),
+		})).json()
+
+		if (response.status === 200) {
+			return
+		}
+		console.warn(response.error)
+	} catch (error) {
+		console.error("error in updating quantity: " + error)
+	}
+}

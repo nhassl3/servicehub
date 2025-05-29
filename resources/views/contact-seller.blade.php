@@ -1,27 +1,13 @@
-<?php session_start(); ?>
+@extends('layouts.master')
 
-<!DOCTYPE html>
-<html lang="ru">
+@section('title', 'Связь с продавцом')
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ServiceHub | Связь с продавцом</title>
-	<link rel="stylesheet" href="/assets/css/style.css">
-	<link rel="stylesheet" href="/assets/css/style-market.css">
-	<!-- DEVELOP -->
-	<link rel="stylesheet" href="/assets/css/style-in-develop.css">
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/connect_favicon.php" ?>
-</head>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/style-market.css') }}">
+<!-- DEVELOP -->
+<link rel="stylesheet" href="{{ asset('css/style-in-develop.css') }}">
+@endsection
 
-<body>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/header.php" ?>
-
-	<main>
-		<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/in-develop.php" ?>
-	</main>
-
-	<?php include $_SERVER['DOCUMENT_ROOT'] . "/pages/footer.html" ?>
-</body>
-
-</html>
+@section('content')
+@include('in-develop')
+@endsection

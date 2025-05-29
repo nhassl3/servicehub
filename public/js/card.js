@@ -1,9 +1,9 @@
-function togglePassword(element) {
-	element.classList.toggle("show-text")
-}
+const toggleBtn = document.querySelector("#toggle-password-btn")
+toggleBtn.addEventListener("click", () => {
+	toggleBtn.classList.toggle("show-text")
+})
 
-const countInput = document.querySelector("input.count-of-good")
-countInput.addEventListener('change', function () {
+document.querySelector("input.count-of-good").addEventListener('change', function () {
 	const value = parseInt(this.value)
 	const min = parseInt(this.min)
 	const max = parseInt(this.max)
@@ -17,33 +17,34 @@ countInput.addEventListener('change', function () {
 	}
 })
 
-function gotoBuy(productId) {
-	window.location.href = `/pages/gocheckout.php?productId=${productId}`
-}
+const addToCartBtn = document.querySelector("#success-adding-to-cart")
+addToCartBtn.addEventListener('click', async (e) => {
+	if (addToCartBtn.dataset.logged === '1') {
+		e.preventDefault()
+		try {
+			const response = await fetch("/cart/update", {
+				method: "POST",
+				headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": document.querySelector("meta[name='csrf-token']").getAttribute('content') },
+				body: JSON.stringify({ "productId": +addToCartBtn.dataset.product_id, 'amount': +document.querySelector('input.count-of-good').value }),
+			})
+			const data = await response.json()
 
-// adding to cart
-addButton.addEventListener('click', async (e) => {
-	{
-		if (addButton.dataset.logged === '1') {
-			e.preventDefault()
-			try {
-				const response = await fetch("/pages/add-to-cart.php", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-				})
-				const data = await response.json()
-
-				if (data.status) {
-					addNotification(addButton, "Товар успешно добавлен в корзину")
-					updateCountsInCart(e)
-				} else {
-					alert("Не удалось добавить продукт в корзину!")
-				}
-			} catch (error) {
-				console.error("Error in adding good: ", error)
+			if (data.status === 200) {
+				addNotification(addToCartBtn.dataset.alert, data.message)
+				updateCountsInCart(e)
+			} else {
+				addNotification(addToCartBtn.dataset.alert, data.message)
 			}
-		} else {
-			window.location.href = "/pages/auth/register.php"
+		} catch (error) {
+			console.error("Error in adding good: ", error)
 		}
+	} else {
+		window.location.href = "/auth/register"
 	}
+}
+)
+
+const fastBuyBtn = document.querySelector("#fast-buy-btn")
+fastBuyBtn.addEventListener("click", () => {
+	updateUrlParams({ productId: +fastBuyBtn.dataset.product_id }, '/gocheckout')
 })

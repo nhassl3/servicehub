@@ -19,13 +19,11 @@ class Product extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'title',
-        'description',
-        'price',
-        'file_url',
-        'discount_price',
+        'name',
         'weight',
-        'unity_weight'
+        'price',
+        'discount_price',
+        'image_url'
     ];
 
     /**
@@ -41,5 +39,10 @@ class Product extends Model
             'discount_price' => 'integer',
             'image_url' => 'string'
         ];
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class);
     }
 }

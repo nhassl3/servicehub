@@ -1,0 +1,18 @@
+main {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.page-error {
+	font-size: 128pt;
+	letter-spacing: 15px;
+	font-weight: 1000;
+	padding-bottom: 30px;
+}
+
+.page-error-text {
+	font-size: 18pt;
+}

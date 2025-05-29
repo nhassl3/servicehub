@@ -75,8 +75,7 @@ function generateAlert(alert, text) {
 	}
 }
 
-function addNotification(element, text) {
-	const id = element.dataset.alert
+function addNotification(id, text) {
 	generateAlert(id, text)
 	const n = notifications[id].cloneNode(true)
 	output.appendChild(n)

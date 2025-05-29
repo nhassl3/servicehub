@@ -3,10 +3,10 @@
 @section("title", "Страница не найдена")
 
 @section("css")
-<link rel="stylesheet" href="{{ asset("css/style-404.css") }}">
+<link rel="stylesheet" href="{{ asset("css/style-error.css") }}">
 @endsection
 
 @section('content')
-<h2 class="page404">404</h2>
-<div class='page404-text'>Страница не найдена!</div>
+<h2 class="page-error">404</h2>
+<div class='page-error-text'>Страница не найдена!</div>
 @endsection

@@ -52,7 +52,7 @@
 			</div>
 
 			<div class="order-box">
-				<span class="left-section-order-box" id="count-selected-goods">Товары (0)</span>
+				<span class="left-section-order-box" id="count-selected-goods">Товары ({{ 0 }})</span>
 				<span class="count-price-reg price-without">0&nbsp;₽</span>
 			</div>
 

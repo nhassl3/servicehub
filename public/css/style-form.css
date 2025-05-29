@@ -57,6 +57,41 @@ section:last-child {
   font-size: 18px;
 }
 
+/* Добавьте в конец файла */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: 30%;
+  box-sizing: border-box;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+  background-image: none !important;
+  background-color: #fff !important;
+  outline: 1px solid #dc3545 !important;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
 @media (max-width: 1024px) {
   main {
     margin: 2em 5em 3em;

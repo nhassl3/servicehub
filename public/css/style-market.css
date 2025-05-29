@@ -1,9 +1,75 @@
+.setter-products {
+	display: flex;
+}
+
+.offset-select {
+	width: 7.34%;
+	display: flex;
+	float: right;
+	height: fit-content;
+	margin: 4em 7em 4em 0;
+	align-items: center;
+}
+
+.offset {
+	display: flex;
+	align-items: center;
+	height: 16px;
+	justify-content: space-between;
+	gap: 30px;
+	padding: 1em;
+	border-radius: 10px;
+	background-color: #f5f7fa;
+}
+
+.ag94-a {
+	border-radius: inherit;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	right: 0;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.offset-btn {
+	display: inline-flex;
+	cursor: pointer;
+	background: rgba(1, 21, 41, .08);
+	color: rgb(0, 26, 52);
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	border: none;
+	height: 32px;
+	overflow: hidden;
+	min-width: 32px;
+	box-sizing: border-box;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+	transition: transform .1s ease-out;
+}
+
+.current {
+	background-color: rgba(1, 21, 41, .4);
+}
+
+.offset-btn:hover:not(li) {
+	transform: scale(1.07);
+}
+
+.offset-btn:active {
+	transform: scale(0.93);
+}
+
 .categories {
 	display: flex;
+	flex: 1;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin-bottom: 5em;
+	margin: 3em 0 6em 13.04%;
 }
 
 .categories-listing ul {
@@ -34,4 +100,28 @@
 .products-category-link.bold {
 	color: #000;
 	font-weight: 500;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 3em;
+}
+
+.paginate {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	height: 48px;
+	background-color: #f5f7fa;
+	padding: .4em 1em;
+}
+
+.paginate ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 16px;
 }

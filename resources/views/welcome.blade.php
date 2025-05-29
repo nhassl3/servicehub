@@ -1,7 +1,10 @@
-<?php session_start(); ?>
 @extends('layouts.master')
 
 @section('title', 'Главная')
+
+@section('meta')
+<meta name='csrf-token' content='{{ csrf_token() }}'>
+@endsection
 
 @section('content')
 <article class="description">
@@ -27,31 +30,10 @@
 		<p class='faded-text'>Ознакомьтесь с новыми и популярными продуктами</p>
 	</header>
 	<div class="line-break"></div>
-	<section class="card" id='clickable'>
-		<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" class='img-card' alt="Топовый товар №1">
-		<div class="left-corner-desc roboto-text">
-			<h4 class='bright-text'>товар 1</h4>
-			<span class='faded-text'>₽ 5000 RUB</span>
-		</div>
-	</section>
-	<section class="card" id='clickable'>
-		<img src="{{ asset("images/blumtap.png") }}" class='img-card' alt="Топовый товар №2">
-		<div class="left-corner-desc roboto-text">
-			<h4 class='bright-text'>blum tap 🫵</h4>
-			<span class='faded-text'>₽ 3200 RUB</span>
-		</div>
-	</section>
-	<section class="card" id='clickable'>
-		<img src="https://cdn.prod.website-files.com/67d171cf69fdf4b81a514090/67d171cf69fdf4b81a5140cc_store-item-1.jpg" class='img-card' alt="Топовый товар №3">
-		<div class="left-corner-desc robot-text">
-			<h4 class='bright-text'>товар 3</h4>
-			<span class='faded-text'>₽ 4999 RUB</span>
-		</div>
-	</section>
+	@include('layouts.cart-view')
 </article>
 @endsection
 
 @section('scripts')
 <script src="{{ asset("js/script.js") }}"></script>
-<script src='{{ asset("js/auth-visible.js") }}'></script>
 @endsection

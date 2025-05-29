@@ -1,5 +1,10 @@
 <?php
-if (!$_SESSION['isLoggedIn']) {
+
+use Illuminate\Support\Facades\Auth;
+
+$user = Auth::user();
+
+if (empty($user)) {
 ?>
 	<div class="auth-links">
 		<ul>
@@ -16,7 +21,7 @@ if (!$_SESSION['isLoggedIn']) {
 ?>
 	<div class="profile">
 		<button class="profile-btn" aria-expanded='false' aria-controls="list">
-			Профиль (<?= $_SESSION['username'] ?>)
+			Профиль ({{ $user['username'] }})
 			<svg class='svg-btn' height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg">
 				<path class='path-btn' d="M14 20l10 10 10-10z" fill='currentColor' />
 			</svg>
@@ -24,13 +29,13 @@ if (!$_SESSION['isLoggedIn']) {
 
 		<ul class="profile-list" id='list' aria-hidden='true'>
 			<li class="profile-item">
-				<a href="/pages/likes-page.php" class="profile-link" tabindex="-1">Понравившиеся</a>
+				<a href="/likes" class="profile-link" tabindex="-1">Понравившиеся</a>
 			</li>
 			<li class="profile-item">
-				<a href="/pages/orders.php" class="profile-link" tabindex="-1">Мои заказы</a>
+				<a href="/orders" class="profile-link" tabindex="-1">Мои заказы</a>
 			</li>
 			<li class="profile-item">
-				<a href="#" class="profile-link" onclick="exitFromAccount()" tabindex="-1">Выйти</a>
+				<a href="{{ route("auth.logout") }}" class="profile-link" tabindex="-1">Выйти</a>
 			</li>
 		</ul>
 	</div>

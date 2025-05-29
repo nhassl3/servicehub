@@ -27,7 +27,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'email',
-        'password_hash',
+        'password',
     ];
 
     /**
@@ -36,7 +36,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password_hash',
+        'password',
         'remember_token',
     ];
 
@@ -49,7 +49,17 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password_hash' => 'hashed',
+            'password' => 'hashed',
         ];
+    }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class);
     }
 }

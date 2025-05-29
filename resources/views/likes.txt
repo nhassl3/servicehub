@@ -1,0 +1,56 @@
+<!-- <article class="left-side-list">
+	<div class="select-category-show-likes">
+		<div class="goods-and-lists category {{ $active ? 'active' : '' }}">
+			<div>
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+					<path fill="currentColor" d="M8 3a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h3a1 1 0 1 0 0-2H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4a1 1 0 1 0 2 0V8a5 5 0 0 0-5-5z"></path>
+					<path fill="currentColor" d="M7 10a1 1 0 0 1 1-1h7a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1m1 3a1 1 0 1 0 0 2h3a1 1 0 1 0 0-2zm9.56 9.9-.144-.064a12 12 0 0 1-1.998-1.148c-.547-.392-1.134-.894-1.592-1.503-.46-.611-.826-1.38-.826-2.276C13 16.223 14.35 15 16 15c.537 0 1.068.086 1.576.355q.225.12.424.275.2-.155.424-.275C18.932 15.086 19.464 15 20 15c1.65 0 3 1.223 3 2.91 0 .895-.366 1.664-.826 2.275-.458.609-1.045 1.111-1.592 1.503A12 12 0 0 1 18.44 22.9c-.302.13-.56.137-.879 0M15 17.91c0 .33.134.687.424 1.073.292.388.705.755 1.158 1.079A10 10 0 0 0 18 20.9l.17-.084c.345-.177.8-.433 1.248-.754.453-.324.866-.69 1.158-1.08.29-.385.424-.742.424-1.073 0-.495-.365-.909-1-.909-.32 0-.503.05-.639.122-.139.074-.314.217-.541.541a1 1 0 0 1-1.64 0c-.227-.324-.402-.467-.541-.54C16.503 17.05 16.32 17 16 17c-.635 0-1 .414-1 .91"></path>
+				</svg>
+			</div>
+			<div>Товары и списки</div>
+		</div>
+	</div>
+
+	<div class="categories-left-side">
+		<div class='h-2' style='font-size: 14px; margin: 0;'>Категория</div>
+		@foreach ($categories as $category)
+		<div class="exists-category"><a href="/market/{}" class="link-to-category">{{ $category }}</a></div>
+		include
+</article>
+
+
+<article class="goods-list">
+	<div class="list">
+		<div class='h-2'>Товары и списки</div>
+		<div class="buttons-panel">
+			<div class="list-panel buttons">
+				<div class='h-4'>Список</div>
+				<div class="plus in-panel-button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+						<path fill="currentColor" d="M12 4a1 1 0 0 0-1 1v6H5a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5a1 1 0 0 0-1-1"></path>
+					</svg>
+					<div class="ag94-a"></div>
+				</div>
+			</div>
+			<div class="recommend-panel buttons">
+				<div class='h-4'>Рекомендуем</div>
+				<div class="lamp in-panel-button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+						<path fill="currentColor" d="M13 1a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0zM4.707 3.293a1 1 0 0 0-1.414 1.414l1 1a1 1 0 0 0 1.414-1.414zm16 0a1 1 0 0 0-1.414 0l-1 1a1 1 0 0 0 1.414 1.414l1-1a1 1 0 0 0 0-1.414M5 11a7 7 0 0 0 4 6.326V20a1 1 0 0 0 1 1h4a1 1 0 1 0 0-2h-3v-2c0-.536-.082-1.078-.667-1.284A5.002 5.002 0 0 1 12 6a5 5 0 0 1 2.5 9.332 1 1 0 1 0 1 1.73A7 7 0 1 0 5 11m5 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1M1 11a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1"></path>
+						<path fill="currentColor" d="M20 11a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1"></path>
+					</svg>
+					<div class="ag94-a"></div>
+				</div>
+			</div>
+		</div>
+		<div class="sort-select" role="listbox">
+			<div class="lllla">
+				<div text="Сначала новые" class="start-new">Сначала новые</div>
+				<input autocomplete='off' title readonly="readonly" type="text" role="combobox" name='filter' value>
+			</div>
+			<span class="e3120-b7"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="e3120-b8">
+					<path fill="currentColor" d="m4 6 4 5 4-5z"></path>
+				</svg></span>
+		</div>
+	</div>
+</article> -->

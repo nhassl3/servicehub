@@ -1,11 +1,13 @@
-<?php
-$nonce = base64_encode(string: random_bytes(16));
-header("Content-Security-Policy: default-src 'self'; script-src 'self' notifications.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;");
-?>
-
 @extends("layouts.master")
 
 @section("title", "Логин")
+
+@section("meta")
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@php
+$cspNonce = app('csp-nonce');
+@endphp
+@endsection
 
 @section("css")
 <link rel="stylesheet" href="{{ asset("css/style-form.css") }}">
@@ -17,25 +19,45 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' notificat
 	<header>
 		<h2 class='h-2'>авторизация</h2>
 	</header>
-	<form style="width: 538px;" method="post" action='javascript:void(0);'>
+
+	@isset($errors)
+	@if ($errors->any())
+	<div class="alert alert-danger" style="margin-bottom: 20px;">
+		<ul style="list-style: none; padding: 0; margin: 0;">
+			@foreach ($errors->all() as $error)
+			<li style="color: #dc3545; margin-bottom: 5px;">{{ $error }}</li>
+			@endforeach
+		</ul>
+	</div>
+	@endif
+	@endisset
+
+	<form style="width: 538px;" id='login' data-alert='0' method="post" action='{{ route("auth.login") }}'>
+		@csrf
+
 		<section>
-			<label for="username" class="lbl-int">имя пользователя</label>
-			<input type="text" id="username" class="ipt-data" minlength="2" maxlength="50" pattern="[A-Za-zА-Яа-яЁё\s]+" placeholder="Введите никнейм" autocomplete='additional-name' require />
+			<label for="email" class="lbl-int">email</label>
+			<input type="email" id="email" class="ipt-data @error('email') is-invalid @enderror"
+				placeholder="Введите email" name='email' autocomplete='email'
+				value='{{ old('email') }}' required />
 		</section>
+
 		<section>
 			<label for="password" class="lbl-int">пароль</label>
-			<input type="password" id="password" class="ipt-data" placeholder="Введите пароль" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_]).{8,12}$" require />
+			<input type="password" autocomplete='current-password' id="password" class="ipt-data @error('password') is-invalid @enderror"
+				placeholder="Введите пароль" name="password" required />
 		</section>
-		<button data-alert='0' class="btn-submit" id='log-in'>вход</button>
+
+		<button type='submit' class="btn-submit">вход</button>
 	</form>
+
 	<section class='centralize'>
-		<div class='account-actions'><a class='without-decor' href="/pages/auth/register.php">Зарегистрироваться</a></div>
+		<div class='account-actions'><a class='without-decor' href="{{ route('auth.register-view') }}">Зарегистрироваться</a></div>
 	</section>
 </article>
 <div class="notifications"></div>
 @endsection
 
 @section('js')
-<script src="{{ asset("js/notifications.js") }}"></script>
-<script src="{{ asset("js/login.js") }}"></script>
+<script src="{{ asset("js/notifications.js") }}" nonce='{{ $cspNonce }}'></script>
 @endsection
